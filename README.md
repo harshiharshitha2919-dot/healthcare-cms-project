@@ -49,3 +49,25 @@ Follow these clear instructions directly on your mobile browser or computer to r
 4. **Explore Workspace Features:** Upon verification, the authorization cards disappear, and your dynamic workspace workspace populates. 
    * *Notice Role Controls:* If you register as a **Donor**, the system automatically hides the **"New Camp"** action button because Donors lack data entry permissions. If you log in as a **Doctor** or **Admin**, the administrative action button becomes fully visible!
 5. **Session Exit:** Tap the **Logout** button in the top right corner to clear your active dashboard view and safely return to the secure login card.
+
+---
+
+## 🗃️ Module 2: Home Page Management Schema Design
+
+To support administrative dynamic text updates across the public healthcare landing components, the following database architecture handles configuration parameters and impact tracking metrics:
+
+### Table 1: `configurations` (Stores Hero Banner values)
+| Column Name | Data Type | Key Attributes | Field Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `INT` | `PRIMARY KEY`, `AUTO_INCREMENT` | Unique configuration ID |
+| `key_name` | `VARCHAR(50)` | `NOT NULL`, `UNIQUE` | Unique identifier key (e.g., `hero_title`) |
+| `value_text` | `TEXT` | `NOT NULL` | The actual message payload displayed on the landing page |
+
+### Table 2: `statistics` (Stores Landing Numbers Counters)
+| Column Name | Data Type | Key Attributes | Field Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `INT` | `PRIMARY KEY`, `AUTO_INCREMENT` | Unique entry key |
+| `stat_value` | `VARCHAR(50)` | `NOT NULL` | The counter number string (e.g., `10,000+`) |
+| `stat_label` | `VARCHAR(100)` | `NOT NULL` | The helper description label text |
+| `status` | `VARCHAR(20)` | `DEFAULT 'Active'` | Tracks soft deletes (`Active` / `Inactive`) |
+
