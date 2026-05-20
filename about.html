@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarePulse - About Us & Management Portal</title>
+    <title>CarePulse - About Us CMS Workspace</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
@@ -18,10 +18,6 @@
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-        }
-        .value-card:hover {
-            transform: translateY(-5px);
         }
         .team-badge {
             width: 70px;
@@ -35,26 +31,59 @@
             font-size: 28px;
             margin-bottom: 15px;
         }
-        .section-title {
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 11px 16px;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 4px;
-            background: #0284c7;
-            border-radius: 2px;
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #0284c7;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePulse - About Us CMS Workspace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .team-badge {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0284c7, #22c55e);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
         .form-control, .form-select {
             border-radius: 12px;
-            padding: 10px 15px;
+            padding: 11px 16px;
             border: 1px solid #e2e8f0;
             background-color: #f8fafc;
+        }
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #0284c7;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
         }
     </style>
 </head>
@@ -64,112 +93,140 @@
         <div class="container">
             <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
             <div>
-                <a href="index.html" class="btn btn-light rounded-pill px-3 me-2 small">Home</a>
-                <button id="togglePortalBtn" class="btn btn-outline-primary rounded-pill px-4" onclick="toggleView()">Admin Console</button>
+                <a href="index.html" class="btn btn-light rounded-pill px-3 me-2 btn-sm">Home</a>
+                <button id="toggleConsoleBtn" class="btn btn-outline-primary rounded-pill px-4 btn-sm" onclick="toggleWorkspaceRoute()">Open Admin Panel</button>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <div class="container pb-5">
 
-        <div id="publicAboutView">
+        <div id="publicInterfaceContainer">
             
             <div class="text-center my-4">
                 <h1 class="fw-bold text-dark">About Our Organization</h1>
-                <p class="text-muted col-md-8 mx-auto">Discover our history, fundamental core values, and the dedicated team driving impact every single day.</p>
+                <p class="text-muted col-md-8 mx-auto">Providing free health camps, nutritional diagnostic drives, and healthcare monitoring consoles.</p>
             </div>
 
             <div class="card p-4 mb-4">
-                <h3 class="fw-bold text-dark section-title"><i class="fa-solid fa-book-open text-primary me-2"></i>Our Story & History</h3>
-                <p id="displayStory" class="text-secondary lead fs-6 m-0" style="line-height: 1.8;">
+                <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-book-open text-primary me-2"></i>Our Story & Background</h4>
+                <p id="targetStoryDisplay" class="text-secondary m-0 lead fs-6" style="line-height: 1.8;">
                     Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.
                 </p>
             </div>
 
-            <h4 class="fw-bold text-dark mb-3 mt-5"><i class="fa-solid fa-star text-warning me-2"></i>Our Core Values</h4>
-            <div class="row g-3 mb-5" id="valuesContainer">
-                <div class="col-sm-6 col-md-3">
-                    <div class="card p-3 text-center value-card h-100">
-                        <i class="fa-solid fa-handshake text-primary fs-3 mb-2"></i>
-                        <h6 class="fw-bold m-0 text-dark">Integrity</h6>
-                    </div>
+            <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-star text-warning me-2"></i>Core Foundation Values</h5>
+            <div class="row g-3 mb-4" id="targetValuesDisplayGrid">
+                <div class="col-6 col-md-3" id="val-row-0">
+                    <div class="card p-3 text-center fw-semibold text-secondary">Integrity</div>
                 </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card p-3 text-center value-card h-100">
-                        <i class="fa-solid fa-users text-success fs-3 mb-2"></i>
-                        <h6 class="fw-bold m-0 text-dark">Inclusivity</h6>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card p-3 text-center value-card h-100">
-                        <i class="fa-solid fa-heart text-danger fs-3 mb-2"></i>
-                        <h6 class="fw-bold m-0 text-dark">Empathy</h6>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card p-3 text-center value-card h-100">
-                        <i class="fa-solid fa-eye text-warning fs-3 mb-2"></i>
-                        <h6 class="fw-bold m-0 text-dark">Transparency</h6>
-                    </div>
+                <div class="col-6 col-md-3" id="val-row-1">
+                    <div class="card p-3 text-center fw-semibold text-secondary">Inclusivity</div>
                 </div>
             </div>
 
-            <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-user-doctor text-success me-2"></i>Leadership Team</h4>
-            <div class="row g-4" id="teamCardsContainer">
-                <div class="col-md-4">
-                    <div class="card p-4 text-center">
-                        <div class="team-badge mx-auto"><i class="fa-solid fa-user-tie"></i></div>
-                        <h5 class="fw-bold text-dark mb-1">Dr. Amit Sharma</h5>
-                        <p class="text-primary small fw-semibold m-0">Chief Medical Officer & Founder</p>
-                    </div>
+            <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-hand-holding-medical text-success me-2"></i>Active Focus Programs</h5>
+            <div class="row g-3 mb-4" id="targetProgramsDisplayGrid">
+                <div class="col-md-6" id="prog-row-0">
+                    <div class="card p-3"><strong class="text-dark">Free Educational Resources</strong></div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6" id="prog-row-1">
+                    <div class="card p-3"><strong class="text-dark">Healthcare Camps & Screenings</strong></div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-users text-primary me-2"></i>Our Leadership Team</h5>
+            <div class="row g-3" id="targetTeamDisplayGrid">
+                <div class="col-md-4" id="member-card-0">
                     <div class="card p-4 text-center">
-                        <div class="team-badge mx-auto" style="background: linear-gradient(135deg, #ec4899, #f59e0b);"><i class="fa-solid fa-user-nurse"></i></div>
-                        <h5 class="fw-bold text-dark mb-1">Sarah Jones</h5>
-                        <p class="text-success small fw-semibold m-0">Head of Operations & Logistics</p>
+                        <div class="team-badge mx-auto"><i class="fa-solid fa-user-doctor"></i></div>
+                        <h5 class="fw-bold text-dark mb-1">Dr. Amit Sharma</h5>
+                        <p class="text-muted small m-0">Chief Medical Officer</p>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div id="adminAboutView" class="d-none">
+        <div id="adminConsoleContainer" class="d-none">
             
-            <div class="alert alert-dark bg-dark text-white border-0 p-3 my-4 rounded-3 shadow-sm d-flex justify-content-between align-items-center">
-                <div class="m-0"><i class="fa-solid fa-sliders text-primary me-2"></i><strong>About Us Admin Control Console</strong></div>
-                <span class="badge bg-primary px-3 py-2">Role: System Content Manager</span>
+            <div class="alert alert-dark bg-dark text-white border-0 p-3 my-4 rounded-3 d-flex justify-content-between align-items-center flex-wrap g-2">
+                <div class="m-0"><i class="fa-solid fa-sliders text-primary me-2"></i><strong>CarePulse Administration Content Panel</strong></div>
+                <span class="badge bg-primary px-3 py-2">Role: Authorized System Admin</span>
             </div>
 
-            <div class="card p-4 mb-4 border-start border-4 border-primary">
-                <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-pen-to-square me-2"></i>Modify Story Content</h5>
-                <form id="storyForm">
+            <div class="card p-4 mb-4 border-start border-4 border-primary shadow-sm">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-signature me-2"></i>Manage Our Story Form</h5>
+                <form id="cmsStoryForm">
                     <div class="mb-3">
-                        <label class="form-label text-secondary small fw-semibold">Edit Story Text Block</label>
-                        <textarea class="form-control" id="storyTextarea" rows="4" required>Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.</textarea>
+                        <label class="form-label text-secondary small fw-semibold">Edit Primary Background History Text</label>
+                        <textarea class="form-control" id="formStoryTextarea" rows="3" required>Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.</textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary rounded-pill px-4 small btn-sm">Update Story</button>
+                    <button type="submit" class="btn btn-primary px-4 rounded-pill btn-sm">Save Changes</button>
                 </form>
             </div>
 
-            <div class="card p-4 mb-4 border-start border-4 border-success">
-                <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-user-plus me-2"></i>Add New Executive Team Member</h5>
-                <form id="teamForm" class="row g-3">
+            <div class="card p-4 mb-4 border-start border-4 border-warning shadow-sm">
+                <h5 class="fw-bold text-warning text-dark mb-3"><i class="fa-solid fa-list-check me-2"></i>Manage Core Values Grid</h5>
+                <form id="cmsValueForm" class="row g-2 mb-3">
+                    <div class="col-8 col-md-10">
+                        <input type="text" class="form-control" id="newValueInput" placeholder="Enter new core principle value text..." required>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill btn-sm fw-semibold">Add Value</button>
+                    </div>
+                </form>
+                <label class="form-label text-secondary small fw-semibold">Editable Values List Matrix</label>
+                <ul class="list-group" id="adminValuesListContainer">
+                    </ul>
+            </div>
+
+            <div class="card p-4 mb-4 border-start border-4 border-info shadow-sm">
+                <h5 class="fw-bold text-info text-dark mb-3"><i class="fa-solid fa-diagram-project me-2"></i>Manage Programs Form</h5>
+                <form id="cmsProgramForm" class="row g-2">
+                    <div class="col-8 col-md-10">
+                        <input type="text" class="form-control" id="newProgramInput" placeholder="Enter organizational campaign name (e.g., Vocational Training)..." required>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <button type="submit" class="btn btn-info w-100 rounded-pill btn-sm text-dark fw-semibold">Add Campaign</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card p-4 mb-4 border-start border-4 border-success shadow-sm">
+                <h5 class="fw-bold text-success mb-3"><i class="fa-solid fa-address-card me-2"></i>Meet the Team Management Form</h5>
+                <form id="cmsTeamForm" class="row g-3 mb-4">
                     <div class="col-md-5">
-                        <label class="form-label text-secondary small fw-semibold">Member Name</label>
-                        <input type="text" class="form-control" id="memberName" placeholder="e.g., Prof. Rajesh Kumar" required>
+                        <label class="form-label text-secondary small fw-semibold">Member Full Name</label>
+                        <input type="text" class="form-control" id="inputMemberName" placeholder="Enter staff name" required>
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label text-secondary small fw-semibold">Role / Designation</label>
-                        <input type="text" class="form-control" id="memberRole" placeholder="e.g., Lead Health Coordinator" required>
+                        <label class="form-label text-secondary small fw-semibold">Member Assignment Role</label>
+                        <input type="text" class="form-control" id="inputMemberRole" placeholder="e.g., Program Director" required>
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label text-secondary small fw-semibold">Profile Photo File</label>
-                        <input type="file" class="form-control" id="memberFile">
+                        <label class="form-label text-secondary small fw-semibold">Upload Profile Photograph</label>
+                        <input type="file" class="form-control" id="inputMemberFile">
                     </div>
                     <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-success rounded-pill px-4 small btn-sm">Insert Member Entry</button>
+                        <button type="submit" class="btn btn-success px-4 rounded-pill btn-sm">Insert Member Registry</button>
                     </div>
                 </form>
+
+                <label class="form-label text-secondary small fw-semibold mb-2">Registered Team Entities Table Registry</label>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle border text-start m-0">
+                        <thead class="table-light small">
+                            <tr>
+                                <th>Staff Employee Name</th>
+                                <th>Assigned Operational Title Role</th>
+                                <th class="text-center">Action Controls</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTeamTableContainer">
+                            </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -177,60 +234,174 @@
     </div>
 
     <script>
-        const publicAboutView = document.getElementById('publicAboutView');
-        const adminAboutView = document.getElementById('adminAboutView');
-        const togglePortalBtn = document.getElementById('togglePortalBtn');
+        const publicInterfaceContainer = document.getElementById('publicInterfaceContainer');
+        const adminConsoleContainer = document.getElementById('adminConsoleContainer');
+        const toggleConsoleBtn = document.getElementById('toggleConsoleBtn');
 
-        // Toggle page screen views between live preview and admin editor panels
-        function toggleView() {
-            if (adminAboutView.classList.contains('d-none')) {
-                adminAboutView.classList.remove('d-none');
-                publicAboutView.classList.add('d-none');
-                togglePortalBtn.innerText = "Exit Admin Panel";
-                togglePortalBtn.className = "btn btn-danger rounded-pill px-4";
+        // Dynamic local repository data models memory simulation mappings
+        let valuesDataModel = ["Integrity", "Inclusivity"];
+        let programsDataModel = ["Free Educational Resources", "Healthcare Camps & Screenings"];
+        let teamDataModel = [{ id: 0, name: "Dr. Amit Sharma", role: "Chief Medical Officer" }];
+
+        function toggleWorkspaceRoute() {
+            if (adminConsoleContainer.classList.contains('d-none')) {
+                adminConsoleContainer.classList.remove('d-none');
+                publicInterfaceContainer.classList.add('d-none');
+                toggleConsoleBtn.innerText = "Close Admin Panel";
+                toggleConsoleBtn.className = "btn btn-danger rounded-pill px-4 btn-sm";
+                renderAdminControlGrids();
             } else {
-                adminAboutView.classList.add('d-none');
-                publicAboutView.classList.remove('d-none');
-                togglePortalBtn.innerText = "Admin Console";
-                togglePortalBtn.className = "btn btn-outline-primary rounded-pill px-4";
+                adminConsoleContainer.classList.add('d-none');
+                publicInterfaceContainer.classList.remove('d-none');
+                toggleConsoleBtn.innerText = "Open Admin Panel";
+                toggleConsoleBtn.className = "btn btn-outline-primary rounded-pill px-4 btn-sm";
             }
         }
 
-        // Action 1: Handle history form updates
-        document.getElementById('storyForm').addEventListener('submit', function(e) {
+        function renderAdminControlGrids() {
+            // Compile Form 2: Values List Management Grid UI Matrix
+            const valuesList = document.getElementById('adminValuesListContainer');
+            valuesList.innerHTML = '';
+            valuesDataModel.forEach((val, idx) => {
+                const li = document.createElement('li');
+                li.className = "list-group-item d-flex justify-content-between align-items-center small p-2.5";
+                li.innerHTML = `<span>${val}</span>
+                    <div>
+                        <button class="btn btn-xs btn-outline-secondary btn-sm px-2 py-0.5 me-1" onclick="editValueTrigger(${idx})"><i class="fa-solid fa-pen small"></i> Edit</button>
+                        <button class="btn btn-xs btn-outline-danger btn-sm px-2 py-0.5" onclick="deleteValueTrigger(${idx})"><i class="fa-solid fa-trash-can small"></i> Delete</button>
+                    </div>`;
+                valuesList.appendChild(li);
+            });
+
+            // Compile Form 4: Team Table Matrix View Component
+            const tableBody = document.getElementById('adminTeamTableContainer');
+            tableBody.innerHTML = '';
+            teamDataModel.forEach((member, index) => {
+                const row = document.createElement('tr');
+                row.className = "small";
+                row.innerHTML = `
+                    <td class="fw-semibold text-dark">${member.name}</td>
+                    <td class="text-secondary">${member.role}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-secondary px-2 py-0.5 me-1" onclick="editTeamTrigger(${index})"><i class="fa-solid fa-user-pen"></i> Edit</button>
+                        <button class="btn btn-sm btn-outline-danger px-2 py-0.5" onclick="deleteTeamTrigger(${index})"><i class="fa-solid fa-user-xmark"></i> Delete</button>
+                    </td>`;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function compilePublicInterfaceView() {
+            // Synchronize Values
+            const valuesGrid = document.getElementById('targetValuesDisplayGrid');
+            valuesGrid.innerHTML = '';
+            valuesDataModel.forEach((val, i) => {
+                valuesGrid.innerHTML += `<div class="col-6 col-md-3" id="val-row-${i}"><div class="card p-3 text-center fw-semibold text-secondary">${val}</div></div>`;
+            });
+
+            // Synchronize Programs
+            const proGrid = document.getElementById('targetProgramsDisplayGrid');
+            proGrid.innerHTML = '';
+            programsDataModel.forEach((prog, i) => {
+                proGrid.innerHTML += `<div class="col-md-6" id="prog-row-${i}"><div class="card p-3"><strong class="text-dark">${prog}</strong></div></div>`;
+            });
+
+            // Synchronize Team
+            const teamGrid = document.getElementById('targetTeamDisplayGrid');
+            teamGrid.innerHTML = '';
+            teamDataModel.forEach((member, i) => {
+                teamGrid.innerHTML += `
+                    <div class="col-md-4" id="member-card-${i}">
+                        <div class="card p-4 text-center">
+                            <div class="team-badge mx-auto"><i class="fa-solid fa-user"></i></div>
+                            <h5 class="fw-bold text-dark mb-1">${member.name}</h5>
+                            <p class="text-muted small m-0">${member.role}</p>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        // ================= ACTION DISPATCH SCRIPT HANDLERS =================
+
+        // Handle Form 1 Action: Manage Our Story
+        document.getElementById('cmsStoryForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const updatedText = document.getElementById('storyTextarea').value;
-            document.getElementById('displayStory').innerText = updatedText;
-            alert("🚀 Backend database simulation updated! 'Our Story' text saved successfully.");
-            toggleView(); // Return viewer to public page layout to see live change
+            document.getElementById('targetStoryDisplay').innerText = document.getElementById('formStoryTextarea').value;
+            alert("🚀 System Confirmation: 'Our Story' content text updated successfully in local schema arrays.");
+            toggleWorkspaceRoute();
         });
 
-        // Action 2: Handle creating new team layout elements dynamically
-        document.getElementById('teamForm').addEventListener('submit', function(e) {
+        // Handle Form 2 Action: Manage Core Values Grid Injection
+        document.getElementById('cmsValueForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('memberName').value;
-            const role = document.getElementById('memberRole').value;
+            const input = document.getElementById('newValueInput');
+            valuesDataModel.push(input.value);
+            input.value = '';
+            renderAdminControlGrids();
+            compilePublicInterfaceView();
+            alert("✨ Success: Added new row entry value element.");
+        });
 
-            // Generate clean inner bootstrap DOM container string elements
-            const cardWrapper = document.createElement('div');
-            cardWrapper.className = "col-md-4";
-            cardWrapper.innerHTML = `
-                <div class="card p-4 text-center">
-                    <div class="team-badge mx-auto" style="background: linear-gradient(135deg, #a855f7, #06b6d4);"><i class="fa-solid fa-user text-white"></i></div>
-                    <h5 class="fw-bold text-dark mb-1">${name}</h5>
-                    <p class="text-info small fw-semibold m-0">${role}</p>
-                </div>
-            `;
+        function deleteValueTrigger(index) {
+            valuesDataModel.splice(index, 1);
+            renderAdminControlGrids();
+            compilePublicInterfaceView();
+        }
 
-            document.getElementById('teamCardsContainer').appendChild(cardWrapper);
-            alert(`✨ Database Entry added! ${name} is now registered under team arrays.`);
+        function editValueTrigger(index) {
+            const promptValue = prompt("Update Core Value Entry Statement String:", valuesDataModel[index]);
+            if (promptValue) {
+                valuesDataModel[index] = promptValue;
+                renderAdminControlGrids();
+                compilePublicInterfaceView();
+            }
+        }
+
+        // Handle Form 3 Action: Manage Programs Form Injection
+        document.getElementById('cmsProgramForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('newProgramInput');
+            programsDataModel.push(input.value);
+            alert(`🚀 Campaign Added: ${input.value} initialized.`);
+            input.value = '';
+            compilePublicInterfaceView();
+            toggleWorkspaceRoute();
+        });
+
+        // Handle Form 4 Action: Manage Team Forms Injection
+        document.getElementById('cmsTeamForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('inputMemberName').value;
+            const role = document.getElementById('inputMemberRole').value;
             
-            // Reset input values
-            document.getElementById('memberName').value = '';
-            document.getElementById('memberRole').value = '';
-            toggleView();
+            teamDataModel.push({ name: name, role: role });
+            
+            document.getElementById('inputMemberName').value = '';
+            document.getElementById('inputMemberRole').value = '';
+            document.getElementById('inputMemberFile').value = '';
+            
+            renderAdminControlGrids();
+            compilePublicInterfaceView();
+            alert(`🎉 Success: New registry created for ${name}.`);
         });
+
+        function deleteTeamTrigger(idx) {
+            if (confirm(`Remove profile row entry?`)) {
+                teamDataModel.splice(idx, 1);
+                renderAdminControlGrids();
+                compilePublicInterfaceView();
+            }
+        }
+
+        function editTeamTrigger(idx) {
+            const newName = prompt("Update Team Employee Full Name:", teamDataModel[idx].name);
+            const newRole = prompt("Update Employee Assigned Designation Title:", teamDataModel[idx].role);
+            if (newName && newRole) {
+                teamDataModel[idx].name = newName;
+                teamDataModel[idx].role = newRole;
+                renderAdminControlGrids();
+                compilePublicInterfaceView();
+            }
+        }
     </script>
 </body>
 </html>
-
