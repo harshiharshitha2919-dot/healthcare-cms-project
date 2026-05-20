@@ -5,86 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthcare CMS Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #f4f7f6;
-            font-family: Arial, sans-serif;
+            /* Modern soft healthcare gradient background */
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .main-container {
+            width: 100%;
+            padding: 20px;
         }
         .card {
             border: none;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0284c7, #22c55e);
+            color: white;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+        }
+        .form-control, .form-select {
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
         }
-        .btn-primary {
-            background-color: #007bff;
+        .form-control:focus, .form-select:focus {
+            background-color: #fff;
+            border-color: #0284c7;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
         }
-        .btn-success {
-            background-color: #28a745;
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-custom-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(2, 132, 199, 0.3);
+            color: white;
+        }
+        .btn-custom-success {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-custom-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+            color: white;
         }
         .toggle-link {
-            color: #007bff;
+            color: #0284c7;
+            font-weight: 600;
             cursor: pointer;
+            text-decoration: none;
+        }
+        .toggle-link:hover {
             text-decoration: underline;
+        }
+        .input-group-text {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px 0 0 12px;
+            color: #64748b;
+        }
+        /* Fixes border styles when group icons are used */
+        .input-group > .form-control {
+            border-radius: 0 12px 12px 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                
-                <div class="text-center mb-4">
-                    <h2 class="text-primary fw-bold">❤️ Healthcare CMS</h2>
-                    <p class="text-muted">Medical Support & Deficiency Tracking Platform</p>
+    <div class="main-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    
+                    <div class="text-center mb-4">
+                        <div class="brand-logo">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-1">CarePulse</h3>
+                        <p class="text-muted small">Healthcare Content Management System</p>
+                    </div>
+
+                    <div id="registerContainer" class="card p-4">
+                        <h4 class="mb-4 text-start fw-bold text-dark">Create Account</h4>
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label class="form-label text-secondary small fw-semibold">Full Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                                    <input type="text" class="form-control" id="regName" placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-secondary small fw-semibold">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-secondary small fw-semibold">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="regPassword" placeholder="Create secure password" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label text-secondary small fw-semibold">Select Profile Role</label>
+                                <select class="form-select text-dark" id="regRole">
+                                    <option value="Donor">Donor / Financial Supporter</option>
+                                    <option value="Doctor">Medical Volunteer / Doctor</option>
+                                    <option value="Admin">Healthcare Content Administrator</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-custom-primary w-100 py-2.5">Get Started</button>
+                        </form>
+                        <p class="text-center mt-4 small text-muted">Already have an account? <span class="toggle-link" onclick="showLogin()">Login here</span></p>
+                    </div>
+
+                    <div id="loginContainer" class="card p-4 d-none">
+                        <h4 class="mb-4 text-start fw-bold text-dark">Welcome Back</h4>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label class="form-label text-secondary small fw-semibold">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label text-secondary small fw-semibold">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-custom-success w-100 py-2.5">Secure Login</button>
+                        </form>
+                        <p class="text-center mt-4 small text-muted">New to the platform? <span class="toggle-link" onclick="showRegister()">Sign up here</span></p>
+                    </div>
+
+                    <div id="feedbackAlert" class="alert d-none mt-3 text-center border-0 shadow-sm" role="alert" style="border-radius:12px;"></div>
+
                 </div>
-
-                <div id="registerContainer" class="card p-4 mb-4">
-                    <h4 class="mb-3 text-center fw-bold">Create Account</h4>
-                    <form id="registerForm">
-                        <div class="mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="regName" placeholder="Enter full name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" id="regPassword" placeholder="Create secure password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Select Platform Role</label>
-                            <select class="form-select" id="regRole">
-                                <option value="Donor">Donor / Supporter</option>
-                                <option value="Doctor">Medical Volunteer / Doctor</option>
-                                <option value="Admin">Healthcare Content Administrator</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Sign Up</button>
-                    </form>
-                    <p class="text-center mt-3 small">Already have an account? <span class="toggle-link" onclick="showLogin()">Login here</span></p>
-                </div>
-
-                <div id="loginContainer" class="card p-4 d-none">
-                    <h4 class="mb-3 text-center fw-bold">Secure Portal Login</h4>
-                    <form id="loginForm">
-                        <div class="mb-3">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" required>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Login</button>
-                    </form>
-                    <p class="text-center mt-3 small">Need an account? <span class="toggle-link" onclick="showRegister()">Sign up here</span></p>
-                </div>
-
-                <div id="feedbackAlert" class="alert d-none mt-3 text-center" role="alert"></div>
-
             </div>
         </div>
     </div>
@@ -94,7 +188,6 @@
         const loginContainer = document.getElementById('loginContainer');
         const feedbackAlert = document.getElementById('feedbackAlert');
 
-        // Functions to switch between Login and Registration screens smoothly
         function showLogin() {
             registerContainer.classList.add('d-none');
             loginContainer.classList.remove('d-none');
@@ -111,26 +204,23 @@
             feedbackAlert.classList.add('d-none');
         }
 
-        // Handle Form Submissions (Connecting to local states for validation mock-ups)
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('regName').value;
-            showAlert(`Success! Account created for ${name}. You can log in now.`, 'alert-success');
+            showAlert(`✨ Account successfully created for ${name}! You can now switch to login.`, 'alert-success text-success bg-white');
         });
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
-            showAlert(`Welcome Back! Successfully logged into portal as ${email}.`, 'alert-success');
+            showAlert(`🔒 Access granted. Welcome back, ${email}!`, 'alert-success text-success bg-white');
         });
 
         function showAlert(message, type) {
-            feedbackAlert.className = `alert ${type} mt-3 text-center`;
+            feedbackAlert.className = `alert ${type} mt-3 text-center shadow-sm border-start border-4 border-success`;
             feedbackAlert.innerText = message;
             feedbackAlert.classList.remove('d-none');
         }
     </script>
 </body>
 </html>
-
-
