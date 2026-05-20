@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePulse - About Us & Management Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        .team-badge {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0284c7, #22c55e);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: #0284c7;
+            border-radius: 2px;
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
+            <div>
+                <a href="index.html" class="btn btn-light rounded-pill px-3 me-2 small">Home</a>
+                <button id="togglePortalBtn" class="btn btn-outline-primary rounded-pill px-4" onclick="toggleView()">Admin Console</button>
+            </div>
+        </nav>
+
+    <div class="container pb-5">
+
+        <div id="publicAboutView">
+            
+            <div class="text-center my-4">
+                <h1 class="fw-bold text-dark">About Our Organization</h1>
+                <p class="text-muted col-md-8 mx-auto">Discover our history, fundamental core values, and the dedicated team driving impact every single day.</p>
+            </div>
+
+            <div class="card p-4 mb-4">
+                <h3 class="fw-bold text-dark section-title"><i class="fa-solid fa-book-open text-primary me-2"></i>Our Story & History</h3>
+                <p id="displayStory" class="text-secondary lead fs-6 m-0" style="line-height: 1.8;">
+                    Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.
+                </p>
+            </div>
+
+            <h4 class="fw-bold text-dark mb-3 mt-5"><i class="fa-solid fa-star text-warning me-2"></i>Our Core Values</h4>
+            <div class="row g-3 mb-5" id="valuesContainer">
+                <div class="col-sm-6 col-md-3">
+                    <div class="card p-3 text-center value-card h-100">
+                        <i class="fa-solid fa-handshake text-primary fs-3 mb-2"></i>
+                        <h6 class="fw-bold m-0 text-dark">Integrity</h6>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card p-3 text-center value-card h-100">
+                        <i class="fa-solid fa-users text-success fs-3 mb-2"></i>
+                        <h6 class="fw-bold m-0 text-dark">Inclusivity</h6>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card p-3 text-center value-card h-100">
+                        <i class="fa-solid fa-heart text-danger fs-3 mb-2"></i>
+                        <h6 class="fw-bold m-0 text-dark">Empathy</h6>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card p-3 text-center value-card h-100">
+                        <i class="fa-solid fa-eye text-warning fs-3 mb-2"></i>
+                        <h6 class="fw-bold m-0 text-dark">Transparency</h6>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-user-doctor text-success me-2"></i>Leadership Team</h4>
+            <div class="row g-4" id="teamCardsContainer">
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <div class="team-badge mx-auto"><i class="fa-solid fa-user-tie"></i></div>
+                        <h5 class="fw-bold text-dark mb-1">Dr. Amit Sharma</h5>
+                        <p class="text-primary small fw-semibold m-0">Chief Medical Officer & Founder</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <div class="team-badge mx-auto" style="background: linear-gradient(135deg, #ec4899, #f59e0b);"><i class="fa-solid fa-user-nurse"></i></div>
+                        <h5 class="fw-bold text-dark mb-1">Sarah Jones</h5>
+                        <p class="text-success small fw-semibold m-0">Head of Operations & Logistics</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="adminAboutView" class="d-none">
+            
+            <div class="alert alert-dark bg-dark text-white border-0 p-3 my-4 rounded-3 shadow-sm d-flex justify-content-between align-items-center">
+                <div class="m-0"><i class="fa-solid fa-sliders text-primary me-2"></i><strong>About Us Admin Control Console</strong></div>
+                <span class="badge bg-primary px-3 py-2">Role: System Content Manager</span>
+            </div>
+
+            <div class="card p-4 mb-4 border-start border-4 border-primary">
+                <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-pen-to-square me-2"></i>Modify Story Content</h5>
+                <form id="storyForm">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary small fw-semibold">Edit Story Text Block</label>
+                        <textarea class="form-control" id="storyTextarea" rows="4" required>Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 small btn-sm">Update Story</button>
+                </form>
+            </div>
+
+            <div class="card p-4 mb-4 border-start border-4 border-success">
+                <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-user-plus me-2"></i>Add New Executive Team Member</h5>
+                <form id="teamForm" class="row g-3">
+                    <div class="col-md-5">
+                        <label class="form-label text-secondary small fw-semibold">Member Name</label>
+                        <input type="text" class="form-control" id="memberName" placeholder="e.g., Prof. Rajesh Kumar" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-secondary small fw-semibold">Role / Designation</label>
+                        <input type="text" class="form-control" id="memberRole" placeholder="e.g., Lead Health Coordinator" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label text-secondary small fw-semibold">Profile Photo File</label>
+                        <input type="file" class="form-control" id="memberFile">
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-success rounded-pill px-4 small btn-sm">Insert Member Entry</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const publicAboutView = document.getElementById('publicAboutView');
+        const adminAboutView = document.getElementById('adminAboutView');
+        const togglePortalBtn = document.getElementById('togglePortalBtn');
+
+        // Toggle page screen views between live preview and admin editor panels
+        function toggleView() {
+            if (adminAboutView.classList.contains('d-none')) {
+                adminAboutView.classList.remove('d-none');
+                publicAboutView.classList.add('d-none');
+                togglePortalBtn.innerText = "Exit Admin Panel";
+                togglePortalBtn.className = "btn btn-danger rounded-pill px-4";
+            } else {
+                adminAboutView.classList.add('d-none');
+                publicAboutView.classList.remove('d-none');
+                togglePortalBtn.innerText = "Admin Console";
+                togglePortalBtn.className = "btn btn-outline-primary rounded-pill px-4";
+            }
+        }
+
+        // Action 1: Handle history form updates
+        document.getElementById('storyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const updatedText = document.getElementById('storyTextarea').value;
+            document.getElementById('displayStory').innerText = updatedText;
+            alert("🚀 Backend database simulation updated! 'Our Story' text saved successfully.");
+            toggleView(); // Return viewer to public page layout to see live change
+        });
+
+        // Action 2: Handle creating new team layout elements dynamically
+        document.getElementById('teamForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('memberName').value;
+            const role = document.getElementById('memberRole').value;
+
+            // Generate clean inner bootstrap DOM container string elements
+            const cardWrapper = document.createElement('div');
+            cardWrapper.className = "col-md-4";
+            cardWrapper.innerHTML = `
+                <div class="card p-4 text-center">
+                    <div class="team-badge mx-auto" style="background: linear-gradient(135deg, #a855f7, #06b6d4);"><i class="fa-solid fa-user text-white"></i></div>
+                    <h5 class="fw-bold text-dark mb-1">${name}</h5>
+                    <p class="text-info small fw-semibold m-0">${role}</p>
+                </div>
+            `;
+
+            document.getElementById('teamCardsContainer').appendChild(cardWrapper);
+            alert(`✨ Database Entry added! ${name} is now registered under team arrays.`);
+            
+            // Reset input values
+            document.getElementById('memberName').value = '';
+            document.getElementById('memberRole').value = '';
+            toggleView();
+        });
+    </script>
+</body>
+</html>
+
