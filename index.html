@@ -24,6 +24,7 @@
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             overflow: hidden;
+            height: 100%; /* Ensures both cards are equal height */
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .card:hover {
@@ -118,8 +119,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1584515901107-56843f3997e4?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Mobile Health Unit Camp">
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column justify-content-center" style="min-height: 200px;">
+                            <div class="mb-2 text-success fs-3">
+                                <i class="fa-solid fa-truck-medical"></i>
+                            </div>
                             <h5 class="fw-bold text-dark">Mobile Health Units</h5>
                             <p class="text-muted m-0">Bringing certified medical diagnostic screenings, primary doctor checks, and necessary prescriptions directly to remote and underserved doorsteps.</p>
                         </div>
