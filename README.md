@@ -1,1 +1,51 @@
-# healthcare-cms-project
+# 🏥 CarePulse: Full-Stack Healthcare CMS Web Application
+
+Welcome to the official repository for **CarePulse**, a responsive Healthcare Content Management System (CMS) designed specifically for community health drives, patient deficiency tracking, and medical support coordination.
+
+---
+
+## 🔗 Project Deliverables (Submission Links)
+* 🌐 **Live Website Link:** [👉 Click Here to View Live Platform](https://YOUR_GITHUB_USERNAME.github.io/healthcare-cms-project/)
+* 📁 **Source Code Repository:** [👉 Click Here to View GitHub Code](https://github.com/YOUR_GITHUB_USERNAME/healthcare-cms-project)
+
+*(Note: Please replace `YOUR_GITHUB_USERNAME` in the links above with your actual GitHub username so they work perfectly for the evaluators!)*
+
+---
+
+## 🛠️ System Overview & Architecture
+
+CarePulse provides a unified, mobile-friendly interface built using the **Bootstrap 5 Framework**. It handles secure user session routing purely in the client layer to toggle between secure authentication pages and highly functional administrative interfaces seamlessly.
+
+### Core Modules Developed:
+1. **Authentication Gateway:** A modular panel containing an interactive registration form and a secure login gateway with form input validation.
+2. **Role-Based Access Simulation:** Adjusts features automatically based on whether the logged-in user is a **Donor**, **Medical Volunteer/Doctor**, or **Healthcare Administrator**.
+3. **Clinical Operations Dashboard:** A unified workspace displaying core tracking counters (Active Camps, Funds Raised, On-Duty Doctors, Patients Assisted) alongside an interactive data table displaying operational programs like Vitamin Drives and Vision screenings.
+
+---
+
+## 🗃️ Relational Database Schema Design
+To support dynamic content management, user tracking, and administrative privileges, the following relational database structure has been designed for **MySQL**:
+
+### Table Name: `users`
+| Column Name | Data Type | Constraints / Attributes | Operational Description |
+| :--- | :--- | :--- | :--- |
+| `user_id` | `INT` | `PRIMARY KEY`, `AUTO_INCREMENT` | Unique identifier assigned to each user. |
+| `full_name` | `VARCHAR(100)` | `NOT NULL` | The user's complete name. |
+| `email` | `VARCHAR(100)` | `NOT NULL`, `UNIQUE` | Unique email string utilized as the account login ID. |
+| `password_hash`| `VARCHAR(255)` | `NOT NULL` | Hashed password string for application security. |
+| `role` | `VARCHAR(50)` | `NOT NULL`, `DEFAULT 'Donor'` | User classification parameters: `Admin`, `Doctor`, or `Donor`. |
+| `status` | `ENUM` | `DEFAULT 'active'` | Operational status tracking: `active` or `inactive`. |
+| `created_at` | `TIMESTAMP` | `DEFAULT CURRENT_TIMESTAMP` | Internal timestamp indicating when the profile was generated. |
+
+---
+
+## 🚀 Step-by-Step Testing Instructions
+
+Follow these clear instructions directly on your mobile browser or computer to run a complete evaluation pass of the system:
+
+1. **Access the Gateway:** Click the live web application hyperlink provided at the top of this documentation file.
+2. **Execute Registration:** Fill out the **Create Account** module form. Select your target role (e.g., choose `Medical Volunteer / Doctor` or `Healthcare Content Administrator`) and tap **Get Started**.
+3. **Portal Login:** The interface will process the payload and redirect you to the login screen. Type your email and password credentials, then tap **Secure Login**.
+4. **Explore Workspace Features:** Upon verification, the authorization cards disappear, and your dynamic workspace workspace populates. 
+   * *Notice Role Controls:* If you register as a **Donor**, the system automatically hides the **"New Camp"** action button because Donors lack data entry permissions. If you log in as a **Doctor** or **Admin**, the administrative action button becomes fully visible!
+5. **Session Exit:** Tap the **Logout** button in the top right corner to clear your active dashboard view and safely return to the secure login card.
