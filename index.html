@@ -12,12 +12,28 @@
             background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-wrapper {
+            flex: 1;
         }
         .card {
             border: none;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .program-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
         }
         .hero-banner {
             background: linear-gradient(135deg, #0284c7, #22c55e);
@@ -35,70 +51,91 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             border-bottom: 4px solid #0284c7;
         }
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
-            <a href="login.html" class="btn btn-primary rounded-pill px-4">Portal Login</a>
-        </div>
-    </nav>
+    <div class="content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="#"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
+                <a href="login.html" class="btn btn-primary rounded-pill px-4">Portal Login</a>
+            </div>
+        </nav>
 
-    <div class="container pb-5">
-        
-        <div class="hero-banner shadow">
-            <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
-            <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
-            <a href="login.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
-        </div>
+        <div class="container pb-3">
+            
+            <div class="hero-banner shadow">
+                <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
+                <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
+                <a href="login.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
+            </div>
 
-        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
-        <div class="row g-3 mb-5">
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h3 class="fw-bold text-primary">10,000+</h3>
-                    <small class="text-muted">Children Checked</small>
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <h3 class="fw-bold text-primary">10,000+</h3>
+                        <small class="text-muted">Children Checked</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #22c55e;">
+                        <h3 class="fw-bold text-success">5,000+</h3>
+                        <small class="text-muted">Families Assisted</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #f59e0b;">
+                        <h3 class="fw-bold text-warning">25+</h3>
+                        <small class="text-muted">Health Drives</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #ec4899;">
+                        <h3 class="fw-bold text-danger">150+</h3>
+                        <small class="text-muted">Medical Volunteers</small>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #22c55e;">
-                    <h3 class="fw-bold text-success">5,000+</h3>
-                    <small class="text-muted">Families Assisted</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #f59e0b;">
-                    <h3 class="fw-bold text-warning">25+</h3>
-                    <small class="text-muted">Health Drives</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #ec4899;">
-                    <h3 class="fw-bold text-danger">150+</h3>
-                    <small class="text-muted">Medical Volunteers</small>
-                </div>
-            </div>
-        </div>
 
-        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
-                    <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements to young children.</p>
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Vitamin Deficiency Detection & Nutrition">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
+                            <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements and use diagnostic imaging to detect early vitamin deficiencies in children.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1584515901107-56843f3997e4?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Mobile Health Unit Camp">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-dark">Mobile Health Units</h5>
+                            <p class="text-muted m-0">Bringing certified medical diagnostic screenings, primary doctor checks, and necessary prescriptions directly to remote and underserved doorsteps.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h5 class="fw-bold text-dark">Mobile Health Units</h5>
-                    <p class="text-muted m-0">Bringing certified diagnostic screenings, primary doctor checks, and prescriptions directly to remote doorsteps.</p>
-                </div>
-            </div>
-        </div>
 
+        </div>
     </div>
+
+    <footer class="text-center text-muted small">
+        <div class="container">
+            <p class="m-0">&copy; 2026 CarePulse CMS Portal. All Rights Reserved.</p>
+            <p class="m-0 text-secondary" style="font-size: 11px;">Maharani Cluster University BCA Final Year Project Submission</p>
+        </div>
+    </footer>
 
 </body>
 </html>
