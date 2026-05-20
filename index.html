@@ -64,11 +64,34 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             border-bottom: 4px solid #0284c7;
         }
+        /* Footer styling to handle columns neatly */
         footer {
             background-color: #ffffff;
             border-top: 1px solid #e2e8f0;
-            padding: 20px 0;
             margin-top: 40px;
+        }
+        .footer-link {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-link:hover {
+            color: #0284c7;
+        }
+        .social-icon {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-right: 15px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+        .social-icon.insta:hover {
+            color: #e1306c;
+            transform: scale(1.1);
+        }
+        .social-icon.linkedin:hover {
+            color: #0077b5;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -94,7 +117,7 @@
                             <a class="nav-link" href="about.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact-footer">Contact Us</a>
+                            <a class="nav-link" href="#contact-section">Contact Us</a>
                         </li>
                     </ul>
                     <a href="login.html" class="btn btn-primary rounded-pill px-4 shadow-sm w-100 w-lg-auto">Portal Login</a>
@@ -165,14 +188,53 @@
         </div>
     </div>
 
-    <footer id="contact-footer" class="text-center text-muted small">
-        <div class="container py-2">
-            <div class="mb-2">
-                <span class="me-3"><i class="fa-solid fa-envelope text-primary me-1"></i> contact@carepulse.org</span>
-                <span><i class="fa-solid fa-phone text-success me-1"></i> +91 98765 43210</span>
+    <footer class="bg-white pt-4 pb-2">
+        <div class="container text-start">
+            <div class="row g-4" id="contact-section">
+                
+                <div class="col-md-4">
+                    <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</h6>
+                    <p class="text-muted small">An open administrative content portal built to help track and broadcast essential community healthcare programs dynamically.</p>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <h6 class="fw-bold text-dark mb-3">Social Connection</h6>
+                    <div>
+                        <a href="https://instagram.com" target="_blank" class="social-icon insta" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon linkedin" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <small class="text-muted d-block mt-2">Follow our daily healthcare field drives.</small>
+                </div>
+                
+                <div class="col-md-3">
+                    <h6 class="fw-bold text-dark mb-3">Contact Us</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i class="fa-solid fa-envelope text-primary me-2"></i>contact@carepulse.org</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone text-success me-2"></i>+91 98765 43210</li>
+                        <li class="mb-2"><i class="fa-solid fa-location-dot text-danger me-2"></i>Bengaluru, Karnataka</li>
+                    </ul>
+                </div>
+                
             </div>
-            <p class="m-0">&copy; 2026 CarePulse CMS Portal. All Rights Reserved.</p>
-            <p class="m-0 text-secondary" style="font-size: 11px;">Maharani Cluster University BCA Final Year Project Submission</p>
+            
+            <hr class="text-muted my-3">
+            
+            <div class="text-center text-muted small" style="font-size: 12px;">
+                <p class="m-0">&copy; 2026 CarePulse CMS Portal. All Rights Reserved.</p>
+                <p class="m-0 text-secondary" style="font-size: 11px;">Maharani Cluster University BCA Final Year Project Submission</p>
+            </div>
         </div>
     </footer>
 
