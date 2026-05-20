@@ -11,13 +11,15 @@
         body {
             background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
             min-height: 100vh;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         .card {
             border: none;
-            border-radius: 20px;
+            border-radius: 24px;
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
         .hero-banner {
             background: linear-gradient(135deg, #0284c7, #22c55e);
@@ -35,70 +37,245 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             border-bottom: 4px solid #0284c7;
         }
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0284c7, #22c55e);
+            color: white;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+        }
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+        }
+        .btn-custom-success {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+        }
+        .toggle-link { color: #0284c7; font-weight: 600; cursor: pointer; text-decoration: none; }
+        .input-group-text { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px 0 0 12px; }
+        .input-group > .form-control { border-radius: 0 12px 12px 0; }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
-            <a href="index.html" class="btn btn-primary rounded-pill px-4">Portal Login</a>
+            <a class="navbar-brand fw-bold text-primary" href="#" onclick="showPublicHome()"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
+            <button class="btn btn-primary rounded-pill px-4" id="navActionBtn" onclick="showPortal()">Portal Login</button>
         </div>
     </nav>
 
     <div class="container pb-5">
         
-        <div class="hero-banner shadow">
-            <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
-            <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
-            <a href="index.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
+        <div id="publicHomeView">
+            <div class="hero-banner shadow">
+                <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
+                <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
+                <button class="btn btn-light text-primary fw-bold rounded-pill px-4" onclick="showPortal()">Join Our Mission</button>
+            </div>
+
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <h3 class="fw-bold text-primary">10,000+</h3>
+                        <small class="text-muted">Children Checked</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #22c55e;">
+                        <h3 class="fw-bold text-success">5,000+</h3>
+                        <small class="text-muted">Families Assisted</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #f59e0b;">
+                        <h3 class="fw-bold text-warning">25+</h3>
+                        <small class="text-muted">Health Drives</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #ec4899;">
+                        <h3 class="fw-bold text-danger">150+</h3>
+                        <small class="text-muted">Medical Volunteers</small>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
+                        <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements to young children.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5 class="fw-bold text-dark">Mobile Health Units</h5>
+                        <p class="text-muted m-0">Bringing certified diagnostic screenings, primary doctor checks, and prescriptions directly to remote doorsteps.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
-        <div class="row g-3 mb-5">
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h3 class="fw-bold text-primary">10,000+</h3>
-                    <small class="text-muted">Children Checked</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #22c55e;">
-                    <h3 class="fw-bold text-success">5,000+</h3>
-                    <small class="text-muted">Families Assisted</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #f59e0b;">
-                    <h3 class="fw-bold text-warning">25+</h3>
-                    <small class="text-muted">Health Drives</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box" style="border-color: #ec4899;">
-                    <h3 class="fw-bold text-danger">150+</h3>
-                    <small class="text-muted">Medical Volunteers</small>
-                </div>
-            </div>
-        </div>
 
-        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
-                    <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements to young children.</p>
+        <div id="portalCardView" class="row justify-content-center d-none mt-4">
+            <div class="col-md-6 col-lg-5 text-center">
+                
+                <div class="text-center mb-4">
+                    <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3 class="fw-bold text-dark mb-1">CarePulse Gate</h3>
+                    <p class="text-muted small">Access Verification Portal</p>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h5 class="fw-bold text-dark">Mobile Health Units</h5>
-                    <p class="text-muted m-0">Bringing certified diagnostic screenings, primary doctor checks, and prescriptions directly to remote doorsteps.</p>
+
+                <div id="registerContainer" class="card p-4 text-start">
+                    <h4 class="mb-4 fw-bold text-dark">Create Account</h4>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-semibold">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                                <input type="text" class="form-control" id="regName" placeholder="Enter full name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-semibold">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-semibold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" id="regPassword" placeholder="Create secure password" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-secondary small fw-semibold">Select Profile Role</label>
+                            <select class="form-select text-dark" id="regRole">
+                                <option value="Donor">Donor / Financial Supporter</option>
+                                <option value="Doctor">Medical Volunteer / Doctor</option>
+                                <option value="Admin">Healthcare Content Administrator</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-custom-primary w-100 py-2.5">Get Started</button>
+                    </form>
+                    <p class="text-center mt-4 small text-muted">Already have an account? <span class="toggle-link" onclick="showLoginCard()">Login here</span></p>
                 </div>
+
+                <div id="loginContainer" class="card p-4 text-start d-none">
+                    <h4 class="mb-4 fw-bold text-dark">Welcome Back</h4>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-semibold">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-secondary small fw-semibold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-custom-success w-100 py-2.5">Secure Login</button>
+                    </form>
+                    <p class="text-center mt-4 small text-muted">New to the platform? <span class="toggle-link" onclick="showRegisterCard()">Sign up here</span></p>
+                </div>
+
+                <div id="feedbackAlert" class="alert d-none mt-3 text-center border-0 shadow-sm" role="alert" style="border-radius:12px;"></div>
+
             </div>
         </div>
 
     </div>
 
+    <script>
+        const publicHomeView = document.getElementById('publicHomeView');
+        const portalCardView = document.getElementById('portalCardView');
+        const registerContainer = document.getElementById('registerContainer');
+        const loginContainer = document.getElementById('loginContainer');
+        const navActionBtn = document.getElementById('navActionBtn');
+        const feedbackAlert = document.getElementById('feedbackAlert');
+
+        function showPortal() {
+            publicHomeView.classList.add('d-none');
+            portalCardView.classList.remove('d-none');
+            navActionBtn.innerText = "Back to Home";
+            navActionBtn.setAttribute("onclick", "showPublicHome()");
+            clearAlert();
+        }
+
+        function showPublicHome() {
+            portalCardView.classList.add('d-none');
+            publicHomeView.classList.remove('d-none');
+            navActionBtn.innerText = "Portal Login";
+            navActionBtn.setAttribute("onclick", "showPortal()");
+        }
+
+        function showLoginCard() {
+            registerContainer.classList.add('d-none');
+            loginContainer.classList.remove('d-none');
+            clearAlert();
+        }
+
+        function showRegisterCard() {
+            loginContainer.classList.add('d-none');
+            registerContainer.classList.remove('d-none');
+            clearAlert();
+        }
+
+        function clearAlert() {
+            feedbackAlert.classList.add('d-none');
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            feedbackAlert.className = `alert alert-success mt-3 text-center shadow-sm border-start border-4 border-success text-success bg-white`;
+            feedbackAlert.innerText = `✨ Account successfully created for ${name}!`;
+            feedbackAlert.classList.remove('d-none');
+            setTimeout(showLoginCard, 2000);
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            feedbackAlert.className = `alert alert-success mt-3 text-center shadow-sm border-start border-4 border-success text-success bg-white`;
+            feedbackAlert.innerText = `🔒 Access granted. Redirecting...`;
+            feedbackAlert.classList.remove('d-none');
+            
+            // Redirects to your dashboard in index.html after 1.5 seconds!
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
