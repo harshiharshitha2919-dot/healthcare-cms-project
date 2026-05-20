@@ -20,9 +20,6 @@
             width: 100%;
             padding: 20px;
         }
-        <div class="text-start mb-3">
-    <a href="index.html" class="text-decoration-none text-secondary"><i class="fa-solid fa-arrow-left me-1"></i> Back to Homepage</a>
-</div>  
         .card {
             border: none;
             border-radius: 24px;
@@ -99,9 +96,13 @@
             border-radius: 12px 0 0 12px;
             color: #64748b;
         }
-        /* Fixes border styles when group icons are used */
         .input-group > .form-control {
             border-radius: 0 12px 12px 0;
+        }
+        .dashboard-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
         }
     </style>
 </head>
@@ -109,7 +110,16 @@
 
     <div class="main-container">
         <div class="container">
-            <div class="row justify-content-center">
+            
+            <div id="backNavContainer" class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-start">
+                        <a href="index.html" class="text-decoration-none text-secondary small fw-semibold"><i class="fa-solid fa-arrow-left me-1"></i> Back to Homepage</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="authLayoutView" class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     
                     <div class="text-center mb-4">
@@ -183,13 +193,97 @@
 
                 </div>
             </div>
+
+            <div id="dashboardConsoleView" class="row justify-content-center d-none">
+                <div class="col-12 col-xl-10">
+                    <div class="card p-4 bg-white shadow-lg">
+                        
+                        <div class="d-flex justify-content-between align-items-center dashboard-header flex-wrap g-2">
+                            <div>
+                                <h3 class="fw-bold text-dark m-0"><i class="fa-solid fa-square-poll-horizontal text-primary me-2"></i>Central Workspace Dashboard</h3>
+                                <p class="text-muted m-0 small">Operational Profile Identity Parameters</p>
+                            </div>
+                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="logoutSession()"><i class="fa-solid fa-power-off me-1"></i>Exit Console</button>
+                        </div>
+
+                        <div class="alert alert-primary bg-opacity-10 border-0 text-primary p-3 mb-4 rounded-3 d-flex align-items-center">
+                            <i class="fa-solid fa-circle-user fs-4 me-3"></i>
+                            <div>
+                                <span class="small d-block text-secondary">Authenticated Account Identity:</span>
+                                <strong id="sessionUserDisplay" class="me-2">Active User Name</strong> 
+                                <span id="sessionRoleDisplay" class="badge bg-primary text-white">Profile Role</span>
+                            </div>
+                        </div>
+
+                        <div id="homeContentConfigManager" class="card p-4 border border-primary bg-light bg-opacity-25 mb-4">
+                            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-pen-to-square me-2"></i>Module 2: Live Homepage Content Manager</h5>
+                            <form id="updateHomeDataForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold text-secondary">Modify Hero Title Tagline</label>
+                                        <input type="text" class="form-control" id="inputTitle" value="Empowering Lives, Creating Opportunities" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold text-secondary">Modify Mission Statement Description</label>
+                                        <input type="text" class="form-control" id="inputDesc" value="Providing free medical aid, healthcare camps, and vital nutrition checks." required>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <label class="form-label small text-secondary fw-semibold">Children Metric Counter</label>
+                                        <input type="text" class="form-control" id="inputStat1" value="10,000+" required>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <label class="form-label small text-secondary fw-semibold">Families Metric Counter</label>
+                                        <input type="text" class="form-control" id="inputStat2" value="5,000+" required>
+                                    </div>
+                                    <div class="col-12 text-end mt-3">
+                                        <button type="submit" class="btn btn-success btn-custom-success px-4 bg-success text-white">Push Content Changes Live</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-folder-open text-primary me-2"></i>Active Health Program Schedules</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle border rounded-3 overflow-hidden m-0">
+                                <thead class="table-light text-secondary">
+                                    <tr>
+                                        <th>Program Campaign Name</th>
+                                        <th>Target Area Focus</th>
+                                        <th>Operational Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold text-dark">Vitamin A Distribution Drive</td>
+                                        <td>Child Vitamin Health Deficiencies</td>
+                                        <td><span class="badge bg-success text-white px-2.5 py-1.5 rounded-pill shadow-sm">Active Drive</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold text-dark">Free Mobile Diagnostics Screening</td>
+                                        <td>Remote Regional Primary Care Checkups</td>
+                                        <td><span class="badge bg-warning text-dark px-2.5 py-1.5 rounded-pill shadow-sm">Pending Verification</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <script>
+        const authLayoutView = document.getElementById('authLayoutView');
+        const dashboardConsoleView = document.getElementById('dashboardConsoleView');
+        const backNavContainer = document.getElementById('backNavContainer');
         const registerContainer = document.getElementById('registerContainer');
         const loginContainer = document.getElementById('loginContainer');
         const feedbackAlert = document.getElementById('feedbackAlert');
+
+        // Initializing user state variables tracking memory objects
+        let activeUserProfile = { name: "Administrator Staff", email: "", role: "Admin" };
 
         function showLogin() {
             registerContainer.classList.add('d-none');
@@ -207,22 +301,71 @@
             feedbackAlert.classList.add('d-none');
         }
 
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            showAlert(`✨ Account successfully created for ${name}! You can now switch to login.`, 'alert-success text-success bg-white');
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            showAlert(`🔒 Access granted. Welcome back, ${email}!`, 'alert-success text-success bg-white');
-        });
-
         function showAlert(message, type) {
             feedbackAlert.className = `alert ${type} mt-3 text-center shadow-sm border-start border-4 border-success`;
             feedbackAlert.innerText = message;
             feedbackAlert.classList.remove('d-none');
+        }
+
+        // Action 1: Processing Registration submissions
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            activeUserProfile.name = document.getElementById('regName').value;
+            activeUserProfile.email = document.getElementById('regEmail').value;
+            activeUserProfile.role = document.getElementById('regRole').value;
+
+            showAlert(`✨ Profile account registered for ${activeUserProfile.name}! Redirecting to login gate...`, 'alert-success text-success bg-white');
+            
+            setTimeout(showLogin, 1500);
+        });
+
+        // Action 2: Processing Portal verification entry logins
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            
+            if(activeUserProfile.email !== email) {
+                // Default account parameters configuration fallback if user logs into portal directly
+                activeUserProfile.name = "Healthcare Coordinator Staff";
+                activeUserProfile.role = "Admin";
+            }
+
+            showAlert(`🔒 Security credentials accepted. Loading central workspace context database...`, 'alert-success text-success bg-white');
+
+            setTimeout(() => {
+                // Map verified variables into terminal dashboard nodes
+                document.getElementById('sessionUserDisplay').innerText = activeUserProfile.name;
+                document.getElementById('sessionRoleDisplay').innerText = activeUserProfile.role;
+
+                // Restrict Homepage Config access to Admin profiles only (Hides layout parameters for Doctors/Donors)
+                const targetHomeSubConsole = document.getElementById('homeContentConfigManager');
+                if (activeUserProfile.role === 'Admin') {
+                    targetHomeSubConsole.classList.remove('d-none');
+                } else {
+                    targetHomeSubConsole.classList.add('d-none');
+                }
+
+                // Smoothly switch layout screens from login cards over to dashboard tracking grids
+                authLayoutView.classList.add('d-none');
+                backNavContainer.classList.add('d-none');
+                dashboardConsoleView.classList.remove('d-none');
+                clearAlert();
+            }, 1200);
+        });
+
+        // Action 3: Processing Homepage dynamic simulation adjustments
+        document.getElementById('updateHomeDataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("🚀 Database setting modified! Configurations successfully updated in database storage arrays.");
+            // Clears console arrays and returns straight back to public index layout safely
+            logoutSession();
+        });
+
+        function logoutSession() {
+            dashboardConsoleView.classList.add('d-none');
+            authLayoutView.classList.remove('d-none');
+            backNavContainer.classList.remove('d-none');
+            showLogin();
         }
     </script>
 </body>
