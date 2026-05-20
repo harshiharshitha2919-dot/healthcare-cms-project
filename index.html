@@ -1,9 +1,18 @@
-<!DOCTYPE html>
+
+
+                                
+                            
+                        
+        
+        
+            
+
+            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare CMS Portal & Dashboard</title>
+    <title>CarePulse - Healthcare CMS & Home Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
@@ -12,285 +21,228 @@
             background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Roboto, sans-serif;
-            padding: 20px 0;
         }
         .card {
             border: none;
-            border-radius: 24px;
+            border-radius: 20px;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
-        .brand-logo {
-            width: 60px;
-            height: 60px;
+        .hero-banner {
             background: linear-gradient(135deg, #0284c7, #22c55e);
             color: white;
-            border-radius: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 15px;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+            border-radius: 24px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
         }
-        .form-control, .form-select {
-            border-radius: 12px;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
-            background-color: #f8fafc;
+        .stat-box {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-bottom: 4px solid #0284c7;
         }
         .btn-custom {
             border: none;
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px 20px;
             font-weight: 600;
-            transition: all 0.2s ease;
-            color: white;
         }
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            color: white;
-        }
-        .btn-primary-grad { background: linear-gradient(135deg, #0284c7, #0369a1); }
-        .btn-success-grad { background: linear-gradient(135deg, #22c55e, #15803d); }
         .toggle-link { color: #0284c7; font-weight: 600; cursor: pointer; text-decoration: none; }
-        .toggle-link:hover { text-decoration: underline; }
-        .stat-card {
-            border-radius: 16px;
-            padding: 20px;
-            color: white;
-            margin-bottom: 15px;
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6" id="authSection">
-                
-                <div class="text-center mb-4">
-                    <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h3 class="fw-bold text-dark mb-1">CarePulse</h3>
-                    <p class="text-muted small">Healthcare Content Management System</p>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</a>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill" id="navAuthBtn" onclick="toggleAuthView()">Portal Login</button>
+        </div>
+    </nav>
 
-                <div id="registerContainer" class="card p-4">
-                    <h4 class="mb-4 fw-bold text-dark">Create Account</h4>
-                    <form id="registerForm">
-                        <div class="mb-3">
-                            <label class="form-label text-secondary small fw-semibold">Full Name</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control" id="regName" placeholder="Enter full name" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label text-secondary small fw-semibold">Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
-                                <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label text-secondary small fw-semibold">Password</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="regPassword" placeholder="Create secure password" required>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label text-secondary small fw-semibold">Select Profile Role</label>
-                            <select class="form-select text-dark" id="regRole">
-                                <option value="Donor">Donor / Financial Supporter</option>
-                                <option value="Doctor">Medical Volunteer / Doctor</option>
-                                <option value="Admin">Healthcare Content Administrator</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-custom btn-primary-grad w-100">Get Started</button>
-                    </form>
-                    <p class="text-center mt-4 small text-muted">Already have an account? <span class="toggle-link" onclick="showLogin()">Login here</span></p>
-                </div>
+    <div class="container pb-5">
+        
+        <div id="publicHomepage">
+            <div class="hero-banner shadow">
+                <h1 class="fw-bold id-text" id="viewHeroTitle">Empowering Lives, Creating Opportunities</h1>
+                <p class="lead opacity-90" id="viewHeroDesc">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
+                <button class="btn btn-light text-primary fw-bold rounded-pill px-4">Support Our Mission</button>
+            </div>
 
-                <div id="loginContainer" class="card p-4 d-none">
-                    <h4 class="mb-4 fw-bold text-dark">Welcome Back</h4>
-                    <form id="loginForm">
-                        <div class="mb-3">
-                            <label class="form-label text-secondary small fw-semibold">Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
-                                <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label text-secondary small fw-semibold">Password</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-custom btn-success-grad w-100">Secure Login</button>
-                    </form>
-                    <p class="text-center mt-4 small text-muted">New to the platform? <span class="toggle-link" onclick="showRegister()">Sign up here</span></p>
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <h3 class="fw-bold text-primary" id="viewStat1">10,000+</h3>
+                        <small class="text-muted">Children Checked</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #22c55e;">
+                        <h3 class="fw-bold text-success" id="viewStat2">5,000+</h3>
+                        <small class="text-muted">Families Assisted</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #f59e0b;">
+                        <h3 class="fw-bold text-warning" id="viewStat3">25+</h3>
+                        <small class="text-muted">Health Drives</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box" style="border-color: #ec4899;">
+                        <h3 class="fw-bold text-danger" id="viewStat4">150+</h3>
+                        <small class="text-muted">Medical Volunteers</small>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 d-none" id="dashboardSection">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                        <h2 class="fw-bold text-dark m-0">❤️ CarePulse Workspace</h2>
-                        <p class="text-muted m-0 small">Welcome back, <span id="userDisplay" class="fw-bold text-primary">User</span> (<span id="roleDisplay" class="badge bg-secondary">Role</span>)</p>
-                    </div>
-                    <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="logout()"><i class="fa-solid fa-power-off me-1"></i> Logout</button>
-                </div>
-
-                <div class="row">
-                    <div class="col-6 col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">
-                            <div class="small opacity-75">Active Health Camps</div>
-                            <h3 class="fw-bold my-1">12</h3>
-                            <div class="small"><i class="fa-solid fa-location-dot"></i> Bangalore Rural</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #22c55e, #4ade80);">
-                            <div class="small opacity-75">Total Funds Raised</div>
-                            <h3 class="fw-bold my-1">₹4.8L</h3>
-                            <div class="small"><i class="fa-solid fa-arrow-trend-up"></i> 84% of Goal</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
-                            <div class="small opacity-75">On-Duty Doctors</div>
-                            <h3 class="fw-bold my-1">34</h3>
-                            <div class="small"><i class="fa-solid fa-user-doctor"></i> Volunteers</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
-                            <div class="small opacity-75">Patients Assisted</div>
-                            <h3 class="fw-bold my-1">1,240</h3>
-                            <div class="small"><i class="fa-solid fa-heart"></i> Vitamin Drives</div>
-                        </div>
+            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
+            <div class="row g-3" id="initiativeGrid">
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
+                        <p class="text-muted small">Targeted nutritional drives across rural regions to distribute medical supplements to young children.</p>
                     </div>
                 </div>
-
-                <div class="card p-4 mt-2">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold text-dark m-0"><i class="fa-solid fa-folder-open text-primary me-2"></i>Manage Healthcare Programs</h5>
-                        <button class="btn btn-primary btn-sm rounded-pill px-3" id="addCampBtn"><i class="fa-solid fa-plus me-1"></i> New Camp</button>
-                    </div>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Program / Campaign Name</th>
-                                    <th>Target Focus</th>
-                                    <th>Budget Status</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="fw-semibold text-dark">Vitamin A Distribution Drive</td>
-                                    <td>Child Deficiencies</td>
-                                    <td>
-                                        <div class="progress" style="height: 6px; width: 100px;">
-                                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-success-subtle text-success border border-success-subtle">Active</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-semibold text-dark">Free Eye Screening Camp</td>
-                                    <td>Cataract Prevention</td>
-                                    <td>
-                                        <div class="progress" style="height: 6px; width: 100px;">
-                                            <div class="progress-bar bg-warning" style="width: 45%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle">Pending Approval</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-semibold text-dark">Maternal Nutrition Seminar</td>
-                                    <td>Iron & B12 Awareness</td>
-                                    <td>
-                                        <div class="progress" style="height: 6px; width: 100px;">
-                                            <div class="progress-bar bg-success" style="width: 100%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-success-subtle text-success border border-success-subtle">Completed</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h5 class="fw-bold text-dark">Mobile Health Units</h5>
+                        <p class="text-muted small">Bringing certified diagnostic screenings, primary doctor checks, and prescriptions directly to remote doorsteps.</p>
                     </div>
                 </div>
-
             </div>
         </div>
+
+        <div id="authSection" class="row justify-content-center d-none my-4">
+            <div class="col-md-6 col-lg-5">
+                <div id="loginContainer" class="card p-4">
+                    <h4 class="mb-3 fw-bold text-dark">Secure Staff Portal</h4>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-secondary">Email Address</label>
+                            <input type="email" class="form-control" id="loginEmail" value="admin@carepulse.com" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label small fw-semibold text-secondary">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" value="admin123" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom btn-primary w-100 bg-primary text-white">Access CMS Console</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="adminPanel" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-3 shadow-sm">
+                <div>
+                    <h4 class="fw-bold text-dark m-0">🛠️ Homepage Content Management</h4>
+                    <small class="text-muted">Logged in as Administrator</small>
+                </div>
+                <button class="btn btn-sm btn-danger rounded-pill" onclick="logoutAdmin()">Exit Console</button>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card p-4">
+                        <h5 class="fw-bold mb-3 text-primary"><i class="fa-solid fa-pen-to-square me-2"></i>Modify Landing Content</h5>
+                        <form id="updateHomeForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold text-secondary small">Hero Banner Title Tagline</label>
+                                <input type="text" class="form-control" id="inputTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold text-secondary small">Hero Mission Statement Text</label>
+                                <textarea class="form-control" id="inputDesc" rows="3" required></textarea>
+                            </div>
+                            <div class="row g-2 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label text-secondary small">Statistic Count 1</label>
+                                    <input type="text" class="form-control" id="inputStat1" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label text-secondary small">Statistic Count 2</label>
+                                    <input type="text" class="form-control" id="inputStat2" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-custom btn-success w-100 bg-success text-white fw-bold">Push Content Changes Live</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card p-4 bg-dark text-white border-0 shadow">
+                        <h5 class="fw-bold text-success mb-2"><i class="fa-solid fa-database me-2"></i>CMS Schema Operations</h5>
+                        <p class="small text-secondary">The data modifications submitted through this dashboard map to your backend database entities:</p>
+                        <ul>
+                            <li class="small mb-2"><strong class="text-light">Table: configurations</strong> tracks values for `hero_title` and `hero_description`.</li>
+                            <li class="small mb-2"><strong class="text-light">Table: statistics</strong> processes values for active numerical impacts.</li>
+                        </ul>
+                        <div class="alert alert-info bg-opacity-10 border-0 text-info small mt-3 m-0" role="alert">
+                            <i class="fa-solid fa-circle-info me-1"></i> Testing Note: Saving updates dynamically replaces the text on the public homepage section above in real-time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
+        const publicHomepage = document.getElementById('publicHomepage');
         const authSection = document.getElementById('authSection');
-        const registerContainer = document.getElementById('registerContainer');
-        const loginContainer = document.getElementById('loginContainer');
-        const dashboardSection = document.getElementById('dashboardSection');
-        
-        // Local state simulation parameters
-        let globalUser = { name: "", role: "Donor" };
+        const adminPanel = document.getElementById('adminPanel');
+        const navAuthBtn = document.getElementById('navAuthBtn');
 
-        function showLogin() {
-            registerContainer.classList.add('d-none');
-            loginContainer.classList.remove('d-none');
+        // Initializing input setup structures
+        document.getElementById('inputTitle').value = document.getElementById('viewHeroTitle').innerText;
+        document.getElementById('inputDesc').value = document.getElementById('viewHeroDesc').innerText;
+        document.getElementById('inputStat1').value = document.getElementById('viewStat1').innerText;
+        document.getElementById('inputStat2').value = document.getElementById('viewStat2').innerText;
+
+        function toggleAuthView() {
+            if(authSection.classList.contains('d-none')) {
+                authSection.classList.remove('d-none');
+                publicHomepage.classList.add('d-none');
+                navAuthBtn.innerText = "Back to Home";
+            } else {
+                authSection.classList.add('d-none');
+                publicHomepage.classList.remove('d-none');
+                navAuthBtn.innerText = "Portal Login";
+            }
         }
 
-        function showRegister() {
-            loginContainer.classList.add('d-none');
-            registerContainer.classList.remove('d-none');
-        }
-
-        // Catching Signup Submission
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            globalUser.name = document.getElementById('regName').value;
-            globalUser.role = document.getElementById('regRole').value;
-            showLogin();
-            alert("✨ Account created successfully! Please type your password to enter.");
-        });
-
-        // Catching Login Submission & Simulating Frontend Routing State
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Fallback default naming parameters if fields are bypassed locally
-            if(!globalUser.name) {
-                globalUser.name = document.getElementById('loginEmail').value.split('@')[0];
-                globalUser.role = "Admin"; 
-            }
-
-            // Update DOM text dynamically
-            document.getElementById('userDisplay').innerText = globalUser.name;
-            document.getElementById('roleDisplay').innerText = globalUser.role;
-
-            // Restrict special creation features unless Admin or Doctor controls are assigned
-            const addCampBtn = document.getElementById('addCampBtn');
-            if (globalUser.role === "Donor") {
-                addCampBtn.classList.add('d-none'); // Donors cannot create or modify healthcare content records
-            } else {
-                addCampBtn.classList.remove('d-none');
-            }
-
-            // Hide auth box, reveal content workspace panel layout
             authSection.classList.add('d-none');
-            dashboardSection.classList.remove('d-none');
+            adminPanel.classList.remove('d-none');
+            navAuthBtn.classList.add('d-none');
         });
 
-        function logout() {
-            dashboardSection.classList.add('d-none');
-            authSection.classList.remove('d-none');
-            showLogin();
+        document.getElementById('updateHomeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Map input field edits back to the viewer panel nodes dynamically
+            document.getElementById('viewHeroTitle').innerText = document.getElementById('inputTitle').value;
+            document.getElementById('viewHeroDesc').innerText = document.getElementById('inputDesc').value;
+            document.getElementById('viewStat1').innerText = document.getElementById('inputStat1').value;
+            document.getElementById('viewStat2').innerText = document.getElementById('inputStat2').value;
+
+            adminPanel.classList.add('d-none');
+            publicHomepage.classList.remove('d-none');
+            navAuthBtn.classList.remove('d-none');
+            navAuthBtn.innerText = "Portal Login";
+            
+            alert("🚀 Changes updated! The landing values have been re-rendered matching database mapping configurations.");
+        });
+
+        function logoutAdmin() {
+            adminPanel.classList.add('d-none');
+            publicHomepage.classList.remove('d-none');
+            navAuthBtn.classList.remove('d-none');
+            navAuthBtn.innerText = "Portal Login";
         }
     </script>
 </body>
