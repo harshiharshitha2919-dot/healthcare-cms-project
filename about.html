@@ -1,5 +1,3 @@
-
-        
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,16 +31,11 @@
             font-size: 28px;
             margin-bottom: 15px;
         }
-        .form-control, .form-select {
+        .form-control {
             border-radius: 12px;
             padding: 11px 16px;
             border: 1px solid #e2e8f0;
             background-color: #f8fafc;
-        }
-        .form-control:focus {
-            background-color: #fff;
-            border-color: #0284c7;
-            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
         }
     </style>
 </head>
@@ -61,7 +54,6 @@
     <div class="container pb-5">
 
         <div id="publicInterfaceContainer">
-            
             <div class="text-center my-4">
                 <h1 class="fw-bold text-dark">About Our Organization</h1>
                 <p class="text-muted col-md-8 mx-auto">Providing free health camps, nutritional diagnostic drives, and healthcare monitoring consoles.</p>
@@ -74,82 +66,15 @@
                 </p>
             </div>
 
-            <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-star text-warning me-2"></i>Core Foundation Values</h5>
-            <div class="row g-3 mb-4" id="targetValuesDisplayGrid">
-                <div class="col-6 col-md-3" id="val-row-0">
-                    <div class="card p-3 text-center fw-semibold text-secondary">Integrity</div>
-                </div>
-                <div class="col-6 col-md-3" id="val-row-1">
-                    <div class="card p-3 text-center fw-semibold text-secondary">Inclusivity</div>
-                </div>
-            </div>
-
-            <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-hand-holding-medical text-success me-2"></i>Active Focus Programs</h5>
-            <div class="row g-3 mb-4" id="targetProgramsDisplayGrid">
-                <div class="col-md-6" id="prog-row-0">
-                    <div class="card p-3"><strong class="text-dark">Free Educational Resources</strong></div>
-                </div>
-                <div class="col-md-6" id="prog-row-1">
-                    <div class="card p-3"><strong class="text-dark">Healthcare Camps & Screenings</strong></div>
-                </div>
-            </div>
-
             <h5 class="fw-bold text-dark mb-3 mt-4"><i class="fa-solid fa-users text-primary me-2"></i>Our Leadership Team</h5>
             <div class="row g-3" id="targetTeamDisplayGrid">
-                <div class="col-md-4" id="member-card-0">
-                    <div class="card p-4 text-center">
-                        <div class="team-badge mx-auto"><i class="fa-solid fa-user-doctor"></i></div>
-                        <h5 class="fw-bold text-dark mb-1">Dr. Amit Sharma</h5>
-                        <p class="text-muted small m-0">Chief Medical Officer</p>
-                    </div>
                 </div>
-            </div>
-
         </div>
 
         <div id="adminConsoleContainer" class="d-none">
-            
-            <div class="alert alert-dark bg-dark text-white border-0 p-3 my-4 rounded-3 d-flex justify-content-between align-items-center flex-wrap g-2">
+            <div class="alert alert-dark bg-dark text-white border-0 p-3 my-4 rounded-3 d-flex justify-content-between align-items-center flex-wrap">
                 <div class="m-0"><i class="fa-solid fa-sliders text-primary me-2"></i><strong>CarePulse Administration Content Panel</strong></div>
                 <span class="badge bg-primary px-3 py-2">Role: Authorized System Admin</span>
-            </div>
-
-            <div class="card p-4 mb-4 border-start border-4 border-primary shadow-sm">
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-signature me-2"></i>Manage Our Story Form</h5>
-                <form id="cmsStoryForm">
-                    <div class="mb-3">
-                        <label class="form-label text-secondary small fw-semibold">Edit Primary Background History Text</label>
-                        <textarea class="form-control" id="formStoryTextarea" rows="3" required>Founded in 2024, CarePulse began with a simple mission: to bridge the healthcare gap in underprivileged sectors. Over the years, we have grown into a trusted Content Management System and healthcare delivery driver network, setting up free camps, food relief channels, and diagnostic drives across rural blocks.</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary px-4 rounded-pill btn-sm">Save Changes</button>
-                </form>
-            </div>
-
-            <div class="card p-4 mb-4 border-start border-4 border-warning shadow-sm">
-                <h5 class="fw-bold text-warning text-dark mb-3"><i class="fa-solid fa-list-check me-2"></i>Manage Core Values Grid</h5>
-                <form id="cmsValueForm" class="row g-2 mb-3">
-                    <div class="col-8 col-md-10">
-                        <input type="text" class="form-control" id="newValueInput" placeholder="Enter new core principle value text..." required>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <button type="submit" class="btn btn-warning w-100 rounded-pill btn-sm fw-semibold">Add Value</button>
-                    </div>
-                </form>
-                <label class="form-label text-secondary small fw-semibold">Editable Values List Matrix</label>
-                <ul class="list-group" id="adminValuesListContainer">
-                    </ul>
-            </div>
-
-            <div class="card p-4 mb-4 border-start border-4 border-info shadow-sm">
-                <h5 class="fw-bold text-info text-dark mb-3"><i class="fa-solid fa-diagram-project me-2"></i>Manage Programs Form</h5>
-                <form id="cmsProgramForm" class="row g-2">
-                    <div class="col-8 col-md-10">
-                        <input type="text" class="form-control" id="newProgramInput" placeholder="Enter organizational campaign name (e.g., Vocational Training)..." required>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <button type="submit" class="btn btn-info w-100 rounded-pill btn-sm text-dark fw-semibold">Add Campaign</button>
-                    </div>
-                </form>
             </div>
 
             <div class="card p-4 mb-4 border-start border-4 border-success shadow-sm">
@@ -187,29 +112,30 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 
-            <script>
+    <script>
         const publicInterfaceContainer = document.getElementById('publicInterfaceContainer');
         const adminConsoleContainer = document.getElementById('adminConsoleContainer');
         const toggleConsoleBtn = document.getElementById('toggleConsoleBtn');
 
-        // 1. LOAD DATA PERMANENTLY FROM LOCALSTORAGE ON PAGE LOAD
-        // If nothing is saved yet, initialize with default records
-        let valuesDataModel = JSON.parse(localStorage.getItem('carepulse_values')) || ["Integrity", "Inclusivity"];
-        let programsDataModel = JSON.parse(localStorage.getItem('carepulse_programs')) || ["Free Educational Resources", "Healthcare Camps & Screenings"];
-        let teamDataModel = JSON.parse(localStorage.getItem('carepulse_team')) || [{ id: 0, name: "Dr. Amit Sharma", role: "Chief Medical Officer" }];
+        // This list guarantees Amit and Pruthvi are permanently coded as defaults!
+        const initialDefaultTeam = [
+            { name: "Dr. Amit Sharma", role: "Chief Medical Officer" },
+            { name: "Pruthvi", role: "Staff Member" }
+        ];
+
+        // 1. READ FROM PERMANENT BROWSER HARD DRIVE STORAGE
+        let teamDataModel = JSON.parse(localStorage.getItem('carepulse_permanent_team'));
         
-        // Also load the permanent story text
-        let savedStory = localStorage.getItem('carepulse_story');
-        if (savedStory) {
-            document.getElementById('targetStoryDisplay').innerText = savedStory;
-            document.getElementById('formStoryTextarea').value = savedStory;
+        // If the browser drive is completely empty, initialize it with your default list
+        if (!teamDataModel || teamDataModel.length === 0) {
+            teamDataModel = initialDefaultTeam;
+            localStorage.setItem('carepulse_permanent_team', JSON.stringify(teamDataModel));
         }
 
-        // Initialize the views with saved data right away
+        // Run primary visual setup instantly on page load
         compilePublicInterfaceView();
 
         function toggleWorkspaceRoute() {
@@ -218,40 +144,25 @@
                 publicInterfaceContainer.classList.add('d-none');
                 toggleConsoleBtn.innerText = "Close Admin Panel";
                 toggleConsoleBtn.className = "btn btn-danger rounded-pill px-4 btn-sm";
-                renderAdminControlGrids();
+                renderAdminTableGrid();
             } else {
                 adminConsoleContainer.classList.add('d-none');
                 publicInterfaceContainer.classList.remove('d-none');
                 toggleConsoleBtn.innerText = "Open Admin Panel";
                 toggleConsoleBtn.className = "btn btn-outline-primary rounded-pill px-4 btn-sm";
+                compilePublicInterfaceView();
             }
         }
 
-        // Helper function to commit current arrays permanently to browser hard drive
-        function saveToPermanentStorage() {
-            localStorage.setItem('carepulse_values', JSON.stringify(valuesDataModel));
-            localStorage.setItem('carepulse_programs', JSON.stringify(programsDataModel));
-            localStorage.setItem('carepulse_team', JSON.stringify(teamDataModel));
+        // 2. WRITE REWARDS AND ENTRIES PERMANENTLY TO INTERNAL PHONE STORAGE
+        function commitToLocalStorage() {
+            localStorage.setItem('carepulse_permanent_team', JSON.stringify(teamDataModel));
         }
 
-        function renderAdminControlGrids() {
-            // Compile Form 2: Values List Management Grid UI Matrix
-            const valuesList = document.getElementById('adminValuesListContainer');
-            valuesList.innerHTML = '';
-            valuesDataModel.forEach((val, idx) => {
-                const li = document.createElement('li');
-                li.className = "list-group-item d-flex justify-content-between align-items-center small p-2.5";
-                li.innerHTML = `<span>${val}</span>
-                    <div>
-                        <button class="btn btn-xs btn-outline-secondary btn-sm px-2 py-0.5 me-1" onclick="editValueTrigger(${idx})"><i class="fa-solid fa-pen small"></i> Edit</button>
-                        <button class="btn btn-xs btn-outline-danger btn-sm px-2 py-0.5" onclick="deleteValueTrigger(${idx})"><i class="fa-solid fa-trash-can small"></i> Delete</button>
-                    </div>`;
-                valuesList.appendChild(li);
-            });
-
-            // Compile Form 4: Team Table Matrix View Component
+        function renderAdminTableGrid() {
             const tableBody = document.getElementById('adminTeamTableContainer');
             tableBody.innerHTML = '';
+            
             teamDataModel.forEach((member, index) => {
                 const row = document.createElement('tr');
                 row.className = "small";
@@ -259,35 +170,20 @@
                     <td class="fw-semibold text-dark">${member.name}</td>
                     <td class="text-secondary">${member.role}</td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-outline-secondary px-2 py-0.5 me-1" onclick="editTeamTrigger(${index})"><i class="fa-solid fa-user-pen"></i> Edit</button>
-                        <button class="btn btn-sm btn-outline-danger px-2 py-0.5" onclick="deleteTeamTrigger(${index})"><i class="fa-solid fa-user-xmark"></i> Delete</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger px-2 py-0.5" onclick="deleteEntryRow(${index})"><i class="fa-solid fa-user-xmark"></i> Delete</button>
                     </td>`;
                 tableBody.appendChild(row);
             });
         }
 
         function compilePublicInterfaceView() {
-            // Synchronize Values
-            const valuesGrid = document.getElementById('targetValuesDisplayGrid');
-            valuesGrid.innerHTML = '';
-            valuesDataModel.forEach((val, i) => {
-                valuesGrid.innerHTML += `<div class="col-6 col-md-3" id="val-row-${i}"><div class="card p-3 text-center fw-semibold text-secondary">${val}</div></div>`;
-            });
-
-            // Synchronize Programs
-            const proGrid = document.getElementById('targetProgramsDisplayGrid');
-            proGrid.innerHTML = '';
-            programsDataModel.forEach((prog, i) => {
-                proGrid.innerHTML += `<div class="col-md-6" id="prog-row-${i}"><div class="card p-3"><strong class="text-dark">${prog}</strong></div></div>`;
-            });
-
-            // Synchronize Team
             const teamGrid = document.getElementById('targetTeamDisplayGrid');
             teamGrid.innerHTML = '';
-            teamDataModel.forEach((member, i) => {
+            
+            teamDataModel.forEach((member) => {
                 teamGrid.innerHTML += `
-                    <div class="col-md-4" id="member-card-${i}">
-                        <div class="card p-4 text-center">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center mb-3">
                             <div class="team-badge mx-auto"><i class="fa-solid fa-user"></i></div>
                             <h5 class="fw-bold text-dark mb-1">${member.name}</h5>
                             <p class="text-muted small m-0">${member.role}</p>
@@ -296,100 +192,30 @@
             });
         }
 
-        // ================= ACTION DISPATCH SCRIPT HANDLERS =================
-
-        // Handle Form 1 Action: Manage Our Story
-        document.getElementById('cmsStoryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const storyText = document.getElementById('formStoryTextarea').value;
-            document.getElementById('targetStoryDisplay').innerText = storyText;
-            
-            // Save story permanently to browser storage
-            localStorage.setItem('carepulse_story', storyText);
-            
-            alert("🚀 System Confirmation: 'Our Story' text saved permanently to browser storage!");
-            toggleWorkspaceRoute();
-        });
-
-        // Handle Form 2 Action: Manage Core Values Grid Injection
-        document.getElementById('cmsValueForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = document.getElementById('newValueInput');
-            valuesDataModel.push(input.value);
-            input.value = '';
-            
-            saveToPermanentStorage(); // Commit change permanently
-            renderAdminControlGrids();
-            compilePublicInterfaceView();
-            alert("✨ Success: Added new value entry permanently!");
-        });
-
-        function deleteValueTrigger(index) {
-            valuesDataModel.splice(index, 1);
-            saveToPermanentStorage(); // Commit change permanently
-            renderAdminControlGrids();
-            compilePublicInterfaceView();
-        }
-
-        function editValueTrigger(index) {
-            const promptValue = prompt("Update Core Value Entry Statement String:", valuesDataModel[index]);
-            if (promptValue) {
-                valuesDataModel[index] = promptValue;
-                saveToPermanentStorage(); // Commit change permanently
-                renderAdminControlGrids();
-                compilePublicInterfaceView();
-            }
-        }
-
-        // Handle Form 3 Action: Manage Programs Form Injection
-        document.getElementById('cmsProgramForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = document.getElementById('newProgramInput');
-            programsDataModel.push(input.value);
-            
-            saveToPermanentStorage(); // Commit change permanently
-            alert(`🚀 Campaign Added Permanently: ${input.value}`);
-            input.value = '';
-            compilePublicInterfaceView();
-            toggleWorkspaceRoute();
-        });
-
-        // Handle Form 4 Action: Manage Team Forms Injection
+        // 3. CATCH FORM INPUTS AND SAVE THEM FOREVER
         document.getElementById('cmsTeamForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('inputMemberName').value;
-            const role = document.getElementById('inputMemberRole').value;
+            const nameInput = document.getElementById('inputMemberName').value;
+            const roleInput = document.getElementById('inputMemberRole').value;
             
-            teamDataModel.push({ id: Date.now(), name: name, role: role });
+            // Inject new row entry into array memory
+            teamDataModel.push({ name: nameInput, role: roleInput });
             
+            // Execute persistent local drive write sequence
+            commitToLocalStorage();
+            renderAdminTableGrid();
+            
+            // Reset input slots
             document.getElementById('inputMemberName').value = '';
             document.getElementById('inputMemberRole').value = '';
-            document.getElementById('inputMemberFile').value = '';
-            
-            saveToPermanentStorage(); // Commit change permanently
-            renderAdminControlGrids();
-            compilePublicInterfaceView();
-            alert(`🎉 Success: Permanent registry created for ${name}.`);
+            alert(`🎉 Permanently Saved: Added ${nameInput} to the system registry database!`);
         });
 
-        function deleteTeamTrigger(idx) {
-            if (confirm(`Remove profile row entry?`)) {
-                teamDataModel.splice(idx, 1);
-                saveToPermanentStorage(); // Commit change permanently
-                renderAdminControlGrids();
-                compilePublicInterfaceView();
-            }
-        }
-
-        function editTeamTrigger(idx) {
-            const newName = prompt("Update Team Employee Full Name:", teamDataModel[idx].name);
-            const newRole = prompt("Update Employee Assigned Designation Title:", teamDataModel[idx].role);
-            if (newName && newRole) {
-                teamDataModel[idx].name = newName;
-                teamDataModel[idx].role = newRole;
-                saveToPermanentStorage(); // Commit change permanently
-                renderAdminControlGrids();
-                compilePublicInterfaceView();
+        function deleteEntryRow(index) {
+            if(confirm("Are you sure you want to permanently delete this team member?")) {
+                teamDataModel.splice(index, 1);
+                commitToLocalStorage(); // Save changes to storage after deletion
+                renderAdminTableGrid();
             }
         }
     </script>
