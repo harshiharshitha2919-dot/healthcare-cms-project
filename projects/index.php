@@ -3,7 +3,7 @@
 $host = "localhost"; 
 $user = "root"; 
 $pass = ""; 
-$dbname = "your_existing_healthcare_db"; 
+$dbname = "your_existing_healthcare_db";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
