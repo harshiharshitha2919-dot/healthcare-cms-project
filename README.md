@@ -72,9 +72,7 @@ To support administrative dynamic text updates across the public healthcare land
 | `status` | `VARCHAR(20)` | `DEFAULT 'Active'` | Tracks soft deletes (`Active` / `Inactive`) |
 # CarePulse - Healthcare Content Management System Portal
 
-An interactive, responsive Content Management System (CMS) designed for community healthcare organizations to track, update, and showcase medical initiatives dynamically. 
-
-Built as a final year BCA project submission for **Maharani Cluster University**.
+An interactive, responsive Content Management System (CMS) designed for community healthcare organizations to track, update, and showcase medical initiatives dynamically.
 
 ---
 
