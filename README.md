@@ -6,8 +6,7 @@ Welcome to the official repository for **CarePulse**, a responsive Healthcare Co
 
 ## 🔗 Project Deliverables (Submission Links)
 * 🌐 **Live Website Link:** [👉 https://harshiharshitha2919-dot.github.io/healthcare-cms-project/login.html)
-* 📁 **Source Code Repository:** [👉 Click Here to View GitHub Code]https://github.com/harshiharshitha2919-dot./healthcare-cms-project
-
+* 📁 **Source Code Repository:** [👉https://github.com/harshiharshitha2919-dot/healthcare-cms-project]
 *(Note: Please replace `YOUR_GITHUB_USERNAME` in the links above with your actual GitHub username so they work perfectly for the evaluators!)*
 
 ---
