@@ -70,4 +70,54 @@ To support administrative dynamic text updates across the public healthcare land
 | `stat_value` | `VARCHAR(50)` | `NOT NULL` | The counter number string (e.g., `10,000+`) |
 | `stat_label` | `VARCHAR(100)` | `NOT NULL` | The helper description label text |
 | `status` | `VARCHAR(20)` | `DEFAULT 'Active'` | Tracks soft deletes (`Active` / `Inactive`) |
+# CarePulse - Healthcare Content Management System Portal
+
+An interactive, responsive Content Management System (CMS) designed for community healthcare organizations to track, update, and showcase medical initiatives dynamically. 
+
+Built as a final year BCA project submission for **Maharani Cluster University**.
+
+---
+
+## 🌐 Live Project Deployment Links
+* **Live Hosted Application Website:** [Click here to view Live Site](https://yourusername.github.io/healthcare-cms-project/index.html)
+* **GitHub Source Code Repository:** [Click here to view Code](https://github.com/yourusername/healthcare-cms-project)
+
+---
+
+## 📱 Application Modules & Architecture
+
+### 1. Public Front-End Module
+* **Homepage (`index.html`):** Renders the primary brand landing experience including a dynamic hero banner tagline, real-time impact metric counters, operational field drives, and verified NGO contact components.
+* **About Us Module (`about.html`):** Renders the organizational narrative history timeline, an interactive core values matrix, and corporate profile cards of the executive leadership team.
+
+### 2. Client-Side CMS Backend Management Module
+Because this system is hosted on static servers (GitHub Pages), the server-side backend operations are completely simulated using **Client-Side JavaScript Event Listeners**.
+* **Portal Gateway (`login.html`):** An authorized security gateway credential mask allowing simulated logins and role assignment verification (Donor, Doctor, Administrator).
+* **Live Content Editor Panels:** Selecting the admin controls on the pages collapses the public layouts and dynamically opens text-area blocks, field arrays, and operational tables equipped with explicit **Edit** and **Delete** action triggers.
+
+---
+
+## 🗄️ Database Architecture Schema Designs
+The system layout maps directly to the following relational database schemas designed for future SQL production migration:
+
+### Module 1: Core Landing Tables
+1. **`banners`**: Maps homepage slider elements, image paths, text strings, and display sorting order indicators.
+2. **`statistic`**: Controls high-visibility counter numbers displaying public achievement metrics.
+
+### Module 2: About Us Tables
+1. **`our_story`**: Manages the multi-line rich text block containing the primary corporate historical overview.
+2. **`core_values`**: Tracks individual rows representing structural virtues alongside matching graphical icon strings.
+3. **`programs`**: Houses active community campaign names and summaries.
+4. **`team_members`**: Manages the comprehensive internal workforce workforce matrix spreadsheet tracking Full Names, Assigned Designations, and Profile Media Path pointers.
+
+---
+
+## 🛠️ Technology Stack Used
+* **Markup & Core Structure:** HTML5
+* **Stuffs & Graphical Layout Layouts:** CSS3
+* **Responsive Layout Utility Grid System:** Bootstrap 5.3
+* **Dynamic Graphical Elements & Typography:** FontAwesome 6.4, Google Fonts
+* **Simulated Content Engine Processing Rules:** Client-Side JavaScript (ES6+)
+* **Hosting Platform:** GitHub Pages
+
 
