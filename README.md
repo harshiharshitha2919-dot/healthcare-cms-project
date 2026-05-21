@@ -62,6 +62,7 @@ To support administrative dynamic text updates across the public healthcare land
 | `key_name` | `VARCHAR(50)` | `NOT NULL`, `UNIQUE` | Unique identifier key (e.g., `hero_title`) |
 | `value_text` | `TEXT` | `NOT NULL` | The actual message payload displayed on the landing page |
 
+
 ### Table 2: `statistics` (Stores Landing Numbers Counters)
 | Column Name | Data Type | Key Attributes | Field Description |
 | :--- | :--- | :--- | :--- |
@@ -116,4 +117,46 @@ The system layout maps directly to the following relational database schemas des
 * **Simulated Content Engine Processing Rules:** Client-Side JavaScript (ES6+)
 * **Hosting Platform:** GitHub Pages
 
+
+# 🏥 CarePulse - Healthcare CMS Project
+
+Welcome to the **CarePulse Content Management System (CMS)**. This repository contains the complete full-stack prototype designed for responsive mobile environments and web interfaces.
+
+---
+
+## 🌐 Live Project Deployment Modules & Links
+
+### 🔐 Assignment 1: Portal Gateway & Home Module
+* **Live Hosted Application:** [Click here to view Live Site](https://harshiharshitha2919-dot.github.io/healthcare-cms-project/index.html)
+* **GitHub Source Code Repository:** [Click here to view Code](https://github.com/harshiharshitha2919-dot/healthcare-cms-project)
+
+### 📄 Assignment 2 & 3: About Us Content Management Module
+* **Live Hosted Application:** [Click here to view Live Site](https://harshiharshitha2919-dot.github.io/healthcare-cms-project/about.html)
+* **GitHub Source Code Repository:** [Click here to view Code](https://github.com/harshiharshitha2919-dot/healthcare-cms-project)
+
+---
+
+## 👥 Module 3: End-User Requirements Specification
+
+### 1. Front-End / Public Visitor Interface
+* **Organization Identity:** Displays the core mission statement, founding year history background, and operational milestones dynamically.
+* **Core Principles:** Responsive grid view layout mapping corporate values (Integrity, Inclusivity, Empathy, Transparency).
+* **Workforce Visibility:** Public dynamic registry showcasing active organization leadership members, titles, and designation badges.
+
+### 2. Back-End / Admin Control Console
+* **Story Customization:** Features input workspace control utilities to alter primary background narratives on the fly.
+* **Persistent Storage Engine:** Fully integrated with browser `LocalStorage` architecture. Any values, campaigns, or staff entities (such as **Pruthvi**) added to the dashboard tables save permanently to device storage and survive page refreshes.
+* **Registry Controls:** Complete CRUD operational mapping with real-time inline table action controls (**Edit** & **Delete** utilities).
+
+---
+
+## 🗄️ Database Table Schema Structure (Production Target)
+
+```sql
+CREATE TABLE team_members (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
