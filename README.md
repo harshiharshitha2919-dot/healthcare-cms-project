@@ -5,14 +5,14 @@ Welcome to the official repository for **CarePulse**, a responsive Healthcare Co
 ---
 
 ## 🔗 Project Deliverables (Submission Links)
-* 🌐 **Live Website Link:** [👉 Click Here to View Live Platform](https://YOUR_GITHUB_USERNAME.github.io/healthcare-cms-project/)
-* 📁 **Source Code Repository:** [👉 Click Here to View GitHub Code](https://github.com/YOUR_GITHUB_USERNAME/healthcare-cms-project)
+* 🌐 **Live Website Link:** [👉 https://harshiharshitha2919-dot.github.io/healthcare-cms-project/)
+* 📁 **Source Code Repository:** [👉 Click Here to View GitHub Code]https://github.com/harshiharshitha2919-dot
 
 *(Note: Please replace `YOUR_GITHUB_USERNAME` in the links above with your actual GitHub username so they work perfectly for the evaluators!)*
 
 ---
 
-## 🛠️ System Overview & Architecture
+## 🛠️ System Overview 
 
 CarePulse provides a unified, mobile-friendly interface built using the **Bootstrap 5 Framework**. It handles secure user session routing purely in the client layer to toggle between secure authentication pages and highly functional administrative interfaces seamlessly.
 
