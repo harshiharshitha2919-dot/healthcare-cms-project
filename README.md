@@ -76,7 +76,7 @@ An interactive, responsive Content Management System (CMS) designed for communit
 ---
 
 ## 🌐 Live Project Deployment Links
-* **Live Hosted Application Website:** [Click here to view Live Site](https://harshiharshitha2919-dot.github.io/healthcare-cms-project/about.html)
+* **Live Hosted Application Website:** [Click here to view Live Site](https://harshiharshitha2919-dot.github.io/healthcare-cms-project/index.html)
 * **GitHub Source Code Repository:** [Click here to view Code](https://github.com/harshiharshitha2919-dot/healthcare-cms-project)
 ---
 
