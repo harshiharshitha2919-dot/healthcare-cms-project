@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarePulse - About Us CMS Workspace</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
-        body {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-        }
-        .card {
-            border: none;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        .team-badge {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #0284c7, #22c55e);
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        .form-control, .form-select {
-            border-radius: 12px;
-            padding: 11px 16px;
-            border: 1px solid #e2e8f0;
-            background-color: #f8fafc;
-        }
-        .form-control:focus {
-            background-color: #fff;
-            border-color: #0284c7;
-            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+
+        
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,18 +189,28 @@
             </div>
 
         </div>
-
     </div>
 
-    <script>
+            <script>
         const publicInterfaceContainer = document.getElementById('publicInterfaceContainer');
         const adminConsoleContainer = document.getElementById('adminConsoleContainer');
         const toggleConsoleBtn = document.getElementById('toggleConsoleBtn');
 
-        // Dynamic local repository data models memory simulation mappings
-        let valuesDataModel = ["Integrity", "Inclusivity"];
-        let programsDataModel = ["Free Educational Resources", "Healthcare Camps & Screenings"];
-        let teamDataModel = [{ id: 0, name: "Dr. Amit Sharma", role: "Chief Medical Officer" }];
+        // 1. LOAD DATA PERMANENTLY FROM LOCALSTORAGE ON PAGE LOAD
+        // If nothing is saved yet, initialize with default records
+        let valuesDataModel = JSON.parse(localStorage.getItem('carepulse_values')) || ["Integrity", "Inclusivity"];
+        let programsDataModel = JSON.parse(localStorage.getItem('carepulse_programs')) || ["Free Educational Resources", "Healthcare Camps & Screenings"];
+        let teamDataModel = JSON.parse(localStorage.getItem('carepulse_team')) || [{ id: 0, name: "Dr. Amit Sharma", role: "Chief Medical Officer" }];
+        
+        // Also load the permanent story text
+        let savedStory = localStorage.getItem('carepulse_story');
+        if (savedStory) {
+            document.getElementById('targetStoryDisplay').innerText = savedStory;
+            document.getElementById('formStoryTextarea').value = savedStory;
+        }
+
+        // Initialize the views with saved data right away
+        compilePublicInterfaceView();
 
         function toggleWorkspaceRoute() {
             if (adminConsoleContainer.classList.contains('d-none')) {
@@ -256,6 +225,13 @@
                 toggleConsoleBtn.innerText = "Open Admin Panel";
                 toggleConsoleBtn.className = "btn btn-outline-primary rounded-pill px-4 btn-sm";
             }
+        }
+
+        // Helper function to commit current arrays permanently to browser hard drive
+        function saveToPermanentStorage() {
+            localStorage.setItem('carepulse_values', JSON.stringify(valuesDataModel));
+            localStorage.setItem('carepulse_programs', JSON.stringify(programsDataModel));
+            localStorage.setItem('carepulse_team', JSON.stringify(teamDataModel));
         }
 
         function renderAdminControlGrids() {
@@ -325,8 +301,13 @@
         // Handle Form 1 Action: Manage Our Story
         document.getElementById('cmsStoryForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            document.getElementById('targetStoryDisplay').innerText = document.getElementById('formStoryTextarea').value;
-            alert("🚀 System Confirmation: 'Our Story' content text updated successfully in local schema arrays.");
+            const storyText = document.getElementById('formStoryTextarea').value;
+            document.getElementById('targetStoryDisplay').innerText = storyText;
+            
+            // Save story permanently to browser storage
+            localStorage.setItem('carepulse_story', storyText);
+            
+            alert("🚀 System Confirmation: 'Our Story' text saved permanently to browser storage!");
             toggleWorkspaceRoute();
         });
 
@@ -336,13 +317,16 @@
             const input = document.getElementById('newValueInput');
             valuesDataModel.push(input.value);
             input.value = '';
+            
+            saveToPermanentStorage(); // Commit change permanently
             renderAdminControlGrids();
             compilePublicInterfaceView();
-            alert("✨ Success: Added new row entry value element.");
+            alert("✨ Success: Added new value entry permanently!");
         });
 
         function deleteValueTrigger(index) {
             valuesDataModel.splice(index, 1);
+            saveToPermanentStorage(); // Commit change permanently
             renderAdminControlGrids();
             compilePublicInterfaceView();
         }
@@ -351,6 +335,7 @@
             const promptValue = prompt("Update Core Value Entry Statement String:", valuesDataModel[index]);
             if (promptValue) {
                 valuesDataModel[index] = promptValue;
+                saveToPermanentStorage(); // Commit change permanently
                 renderAdminControlGrids();
                 compilePublicInterfaceView();
             }
@@ -361,7 +346,9 @@
             e.preventDefault();
             const input = document.getElementById('newProgramInput');
             programsDataModel.push(input.value);
-            alert(`🚀 Campaign Added: ${input.value} initialized.`);
+            
+            saveToPermanentStorage(); // Commit change permanently
+            alert(`🚀 Campaign Added Permanently: ${input.value}`);
             input.value = '';
             compilePublicInterfaceView();
             toggleWorkspaceRoute();
@@ -373,20 +360,22 @@
             const name = document.getElementById('inputMemberName').value;
             const role = document.getElementById('inputMemberRole').value;
             
-            teamDataModel.push({ name: name, role: role });
+            teamDataModel.push({ id: Date.now(), name: name, role: role });
             
             document.getElementById('inputMemberName').value = '';
             document.getElementById('inputMemberRole').value = '';
             document.getElementById('inputMemberFile').value = '';
             
+            saveToPermanentStorage(); // Commit change permanently
             renderAdminControlGrids();
             compilePublicInterfaceView();
-            alert(`🎉 Success: New registry created for ${name}.`);
+            alert(`🎉 Success: Permanent registry created for ${name}.`);
         });
 
         function deleteTeamTrigger(idx) {
             if (confirm(`Remove profile row entry?`)) {
                 teamDataModel.splice(idx, 1);
+                saveToPermanentStorage(); // Commit change permanently
                 renderAdminControlGrids();
                 compilePublicInterfaceView();
             }
@@ -398,6 +387,7 @@
             if (newName && newRole) {
                 teamDataModel[idx].name = newName;
                 teamDataModel[idx].role = newRole;
+                saveToPermanentStorage(); // Commit change permanently
                 renderAdminControlGrids();
                 compilePublicInterfaceView();
             }
