@@ -1,193 +1,328 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarePulse - Healthcare Portal Home</title>
+    <title>CarePulse - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
-        .content-wrapper {
-            flex: 1;
-        }
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-        }
-        .nav-link {
-            font-weight: 500;
-            color: #475569 !important;
-            transition: color 0.2s ease;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #0284c7 !important;
-        }
-        .card {
-            border: none;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            height: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        .program-img {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-        }
         .hero-banner {
-            background: linear-gradient(135deg, #0284c7, #22c55e);
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
             color: white;
-            border-radius: 24px;
-            padding: 50px 20px;
+            padding: 60px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
             text-align: center;
-            margin-bottom: 30px;
         }
         .stat-box {
             background: white;
-            border-radius: 16px;
-            padding: 15px;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border-bottom: 4px solid #0284c7;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #0d6efd;
+            height: 100%;
         }
-        footer {
-            background-color: #ffffff;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 40px;
+        .program-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: var(--bs-card-inner-border-radius);
+            border-top-right-radius: var(--bs-card-inner-border-radius);
         }
         .footer-link {
-            color: #64748b;
             text-decoration: none;
-            transition: color 0.2s ease;
+            color: #6c757d;
+            transition: color 0.2s;
         }
         .footer-link:hover {
-            color: #0284c7;
+            color: #0d6efd;
         }
         .social-icon {
             font-size: 1.2rem;
-            color: #64748b;
             margin-right: 15px;
-            transition: color 0.2s ease, transform 0.2s ease;
-            display: inline-block;
+            color: #6c757d;
+            transition: color 0.2s;
         }
-        .social-icon.insta:hover {
-            color: #e1306c;
-            transform: scale(1.1);
+        .social-icon.insta:hover { color: #e1306c; }
+        .social-icon.linkedin:hover { color: #0077b5; }
+
+        /* Styles Added for the Projects Module Extension */
+        .filter-btn {
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-weight: 500;
+            transition: all 0.2s;
         }
-        .social-icon.linkedin:hover {
-            color: #0077b5;
-            transform: scale(1.1);
+        .project-card-custom {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            height: 100%;
+        }
+        .project-card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1) !important;
+        }
+        .badge-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 10px;
         }
     </style>
 </head>
-<body>
+<body class="bg-light">
 
-    <div class="content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top mb-4">
-            <div class="container">
-                <a class="navbar-brand fw-bold text-primary" href="index.html">
-                    <i class="fa-solid fa-heart-pulse me-2"></i>CarePulse
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact-section">Contact Us</a>
-                        </li>
-                    </ul>
-                    <a href="login.html" class="btn btn-primary rounded-pill px-4 shadow-sm w-100 w-lg-auto">Portal Login</a>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container pb-3">
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fa-solid fa-heart-pulse me-2"></i>CarePulse
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             
-            <div class="hero-banner shadow">
-                <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
-                <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
-                <a href="login.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects-section">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact Us</a>
+                    </li>
+                </ul>
+                <a href="login.html" class="btn btn-primary rounded-pill px-4 shadow-sm w-100 w-lg-auto">Portal Login</a>
             </div>
-
-            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-chart-simple text-success me-2"></i>Our Current Impact</h4>
-            <div class="row g-3 mb-5">
-                <div class="col-6 col-md-3">
-                    <div class="stat-box">
-                        <h3 class="fw-bold text-primary">10,000+</h3>
-                        <small class="text-muted">Children Checked</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-box" style="border-color: #22c55e;">
-                        <h3 class="fw-bold text-success">5,000+</h3>
-                        <small class="text-muted">Families Assisted</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-box" style="border-color: #f59e0b;">
-                        <h3 class="fw-bold text-warning">25+</h3>
-                        <small class="text-muted">Health Drives</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-box" style="border-color: #ec4899;">
-                        <h3 class="fw-bold text-danger">150+</h3>
-                        <small class="text-muted">Medical Volunteers</small>
-                    </div>
-                </div>
-            </div>
-
-            <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs</h4>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Vitamin Deficiency Detection & Nutrition">
-                        <div class="card-body p-4">
-                            <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
-                            <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements and use diagnostic imaging to detect early vitamin deficiencies in children.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body p-4 d-flex flex-column justify-content-center" style="min-height: 200px;">
-                            <div class="mb-2 text-success fs-3">
-                                <i class="fa-solid fa-truck-medical"></i>
-                            </div>
-                            <h5 class="fw-bold text-dark">Mobile Health Units</h5>
-                            <p class="text-muted m-0">Bringing certified medical diagnostic screenings, primary doctor checks, and necessary prescriptions directly to remote and underserved doorsteps.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+    </nav>
+
+    <div class="container pb-3">
+        
+        <div class="hero-banner shadow">
+            <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
+            <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
+            <a href="login.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
+        </div>
+
+        <h4 class="fw-bold text-dark mb-3">
+            <i class="fa-solid fa-chart-simple text-success me-2"></i>Our Systemic Impact
+        </h4>
+        <div class="row g-3 mb-5">
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h3 class="fw-bold text-primary">10,000+</h3>
+                    <small class="text-muted">Children Checked</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #22c55e;">
+                    <h3 class="fw-bold text-success">70+</h3>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePulse - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 60px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #0d6efd;
+            height: 100%;
+        }
+        .program-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: var(--bs-card-inner-border-radius);
+            border-top-right-radius: var(--bs-card-inner-border-radius);
+        }
+        .footer-link {
+            text-decoration: none;
+            color: #6c757d;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #0d6efd;
+        }
+        .social-icon {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #6c757d;
+            transition: color 0.2s;
+        }
+        .social-icon.insta:hover { color: #e1306c; }
+        .social-icon.linkedin:hover { color: #0077b5; }
+
+        /* Styles Added for the Projects Module Extension */
+        .filter-btn {
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .project-card-custom {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            height: 100%;
+        }
+        .project-card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1) !important;
+        }
+        .badge-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fa-solid fa-heart-pulse me-2"></i>CarePulse
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects-section">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact Us</a>
+                    </li>
+                </ul>
+                <a href="login.html" class="btn btn-primary rounded-pill px-4 shadow-sm w-100 w-lg-auto">Portal Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pb-3">
+        
+        <div class="hero-banner shadow">
+            <h1 class="fw-bold">Empowering Lives, Creating Opportunities</h1>
+            <p class="lead opacity-90">Providing free medical aid, health camps, and vital nutrition access to underprivileged communities.</p>
+            <a href="login.html" class="btn btn-light text-primary fw-bold rounded-pill px-4">Join Our Mission</a>
+        </div>
+
+        <h4 class="fw-bold text-dark mb-3">
+            <i class="fa-solid fa-chart-simple text-success me-2"></i>Our Systemic Impact
+        </h4>
+        <div class="row g-3 mb-5">
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h3 class="fw-bold text-primary">10,000+</h3>
+                    <small class="text-muted">Children Checked</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #22c55e;">
+                    <h3 class="fw-bold text-success">70+</h3>
+                    <small class="text-muted">People Helped</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #f59e0b;">
+                    <h3 class="fw-bold text-warning">30+</h3>
+                    <small class="text-muted">Members Engaged</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #ec4899;">
+                    <h3 class="fw-bold text-danger">$30,000+</h3>
+                    <small class="text-muted">Funds Raised</small>
+                </div>
+            </div>
+        </div>
+
+        <section id="projects-section" class="mb-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-2">
+                <h4 class="fw-bold text-dark m-0">
+                    <i class="fa-solid fa-folder-open text-info me-2"></i>Our Projects
+                </h4>
+                
+                <div class="btn-group shadow-sm bg-white p-1 rounded-pill" role="group">
+                    <button type="button" onclick="filterProjectSelection('all')" id="btn-all" class="btn btn-primary filter-btn active">All</button>
+                    <button type="button" onclick="filterProjectSelection('Ongoing')" id="btn-Ongoing" class="btn btn-outline-primary filter-btn border-0">Ongoing</button>
+                    <button type="button" onclick="filterProjectSelection('Completed')" id="btn-Completed" class="btn btn-outline-primary filter-btn border-0">Completed</button>
+                    <button type="button" onclick="filterProjectSelection('Upcoming')" id="btn-Upcoming" class="btn btn-outline-primary filter-btn border-0">Upcoming</button>
+                </div>
+            </div>
+            <p class="text-muted mb-4">Explore our targeted organizational programs built to deliver foundational resources and tracking data live.</p>
+
+            <div class="row g-4 justify-content-center" id="live-projects-container">
+                </div>
+        </section>
+
+        <h4 class="fw-bold text-dark mb-3">
+            <i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs
+        </h4>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Vitamin Deficiency Detection & Nutrition">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
+                        <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements and use diagnostic imaging to detect early vitamin deficiencies in children.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 d-flex flex-column justify-content-center" style="min-height: 315px;">
+                        <div class="mb-2 text-success fs-3">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Mobile Health Units</h5>
+                        <p class="text-muted m-0">Bringing certified medical diagnostic screenings, primary doctor checks, and necessary prescriptions directly to remote and underserved doorsteps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <footer class="bg-white pt-4 pb-2">
+    <footer class="bg-white pt-4 pb-2 border-top">
         <div class="container text-start">
             <div class="row g-4" id="contact-section">
                 
@@ -201,6 +336,7 @@
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
                         <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="#projects-section" class="footer-link">Our Projects</a></li>
                     </ul>
                 </div>
                 
@@ -238,5 +374,196 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Mock dataset modeling dynamic relational backend schema records
+        const dataCollection = [
+            { 
+                id: 1, 
+                title: "Rural Health Checkup Camp", 
+                desc: "Providing localized diagnostic checkups, vitals tracking, and pediatric health support across target centers.", 
+                status: "Ongoing", 
+                img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80" 
+            },
+            { 
+                id: 2, 
+                title: "Nutrition Supplement Delivery", 
+                desc: "Successfully deployed vitamin supplement packs to combat pediatric malnutrition targets across remote communities.", 
+                status: "Completed", 
+                img: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=400&q=80" 
+            },
+            { 
+                id: 3, 
+                title: "Pediatric Deficiency Detection Camp", 
+                desc: "Deploying deep learning CNN tracking tools to process image indicators and map early vitamin deficiencies.", 
+                status: "Upcoming", 
+                img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" 
+            }
+        ];
+
+        function renderProjectsUI(items) {
+            const container = document.getElementById('live-projects-container');
+            container.innerHTML = ''; // Reset frame layout
+
+            if(items.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center text-muted py-4">No active projects found matching this status filter.</div>';
+                return;
+            }
+
+            items.forEach(project => {
+                // Assign matching conditional bootstrap colors based on item state
+                let badgeColor = "bg-primary";
+                if(project.status === "Ongoing") badgeColor = "bg-primary text-white";
+                if(project.status === "Completed") badgeColor = "bg-success text-white";
+                if(project.status === "Upcoming") badgeColor = "bg-warning text-dark";
+
+                container.innerHTML += `
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="project-card-custom shadow-sm d-flex flex-column h-100">
+                            <img src="${project.img}" class="img-fluid" style="height:190px; object-fit:cover;" alt="Initiative Image Asset">
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill ${badgeColor} badge-status">${project.status}</span>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">${project.title}</h5>
+                                <p class="text-muted small flex-grow-1" style="line-height:1.5;">${project.desc}</p>
+                                <hr class="text-muted my-3">
+                                <a href="#" class="text-primary fw-bold small text-decoration-none d-inline-block">Learn More <i class="fa-solid fa-arrow-right ms-1" style="font-size:11px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterProjectSelection(statusTag) {
+            // Update structural display active toggle state on filter buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-primary', 'active');
+                btn.classList.add('btn-outline-primary');
+            });
+
+            const activeBtn = document.getElementById(`btn-${statusTag}`);
+            activeBtn.classList.remove('btn-outline-primary');
+            activeBtn.classList.add('btn-primary', 'active');
+
+            // Apply contextual filtering criteria
+            if (statusTag === 'all') {
+                renderProjectsUI(dataCollection);
+            } else {
+                const filteredList = dataCollection.filter(item => item.status === statusTag);
+                renderProjectsUI(filteredList);
+            }
+        }
+
+        // Initialize grid display render lifecycle upon window page compilation
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProjectsUI(dataCollection);
+        });
+    </script>
 </body>
 </html>
+￼Enter              <small class="text-muted">People Helped</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #f59e0b;">
+                    <h3 class="fw-bold text-warning">30+</h3>
+                    <small class="text-muted">Members Engaged</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box" style="border-color: #ec4899;">
+                    <h3 class="fw-bold text-danger">$30,000+</h3>
+                    <small class="text-muted">Funds Raised</small>
+                </div>
+            </div>
+        </div>
+
+        <section id="projects-section" class="mb-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-2">
+                <h4 class="fw-bold text-dark m-0">
+                    <i class="fa-solid fa-folder-open text-info me-2"></i>Our Projects
+                </h4>
+                
+                <div class="btn-group shadow-sm bg-white p-1 rounded-pill" role="group">
+                    <button type="button" onclick="filterProjectSelection('all')" id="btn-all" class="btn btn-primary filter-btn active">All</button>
+                    <button type="button" onclick="filterProjectSelection('Ongoing')" id="btn-Ongoing" class="btn btn-outline-primary filter-btn border-0">Ongoing</button>
+                    <button type="button" onclick="filterProjectSelection('Completed')" id="btn-Completed" class="btn btn-outline-primary filter-btn border-0">Completed</button>
+                    <button type="button" onclick="filterProjectSelection('Upcoming')" id="btn-Upcoming" class="btn btn-outline-primary filter-btn border-0">Upcoming</button>
+                </div>
+            </div>
+            <p class="text-muted mb-4">Explore our targeted organizational programs built to deliver foundational resources and tracking data live.</p>
+
+            <div class="row g-4 justify-content-center" id="live-projects-container">
+                </div>
+        </section>
+
+        <h4 class="fw-bold text-dark mb-3">
+            <i class="fa-solid fa-hand-holding-medical text-primary me-2"></i>Active Programs
+        </h4>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" class="program-img" alt="Vitamin Deficiency Detection & Nutrition">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark">Vitamin A Deficiency Prevention</h5>
+                        <p class="text-muted m-0">Targeted nutritional drives across rural regions to distribute medical supplements and use diagnostic imaging to detect early vitamin deficiencies in children.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 d-flex flex-column justify-content-center" style="min-height: 315px;">
+                        <div class="mb-2 text-success fs-3">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Mobile Health Units</h5>
+                        <p class="text-muted m-0">Bringing certified medical diagnostic screenings, primary doctor checks, and necessary prescriptions directly to remote and underserved doorsteps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-white pt-4 pb-2 border-top">
+        <div class="container text-start">
+            <div class="row g-4" id="contact-section">
+                
+                <div class="col-md-4">
+                    <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-heart-pulse me-2"></i>CarePulse</h6>
+                    <p class="text-muted small">An open administrative content portal built to help track and broadcast essential community healthcare programs dynamically.</p>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="#projects-section" class="footer-link">Our Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <h6 class="fw-bold text-dark mb-3">Social Connection</h6>
+                    <div>
+                        <a href="https://instagram.com" target="_blank" class="social-icon insta" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon linkedin" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <small class="text-muted d-block mt-2">Follow our daily healthcare field drives.</small>
+                </div>
+                
+                <div class="col-md-3">
+                    <h6 class="fw-bold text-dark mb-3">Contact Us</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i class="fa-solid fa-envelope text-primary me-2"></i>contact@carepulse.org</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone text-success me-2"></i>+91 98765 43210</li>
+                        <li class="mb-2"><i class="fa-solid fa-location-dot text-danger me-2"></i>Bengaluru, Karnataka</li>
+                    </ul>
+                </div>
