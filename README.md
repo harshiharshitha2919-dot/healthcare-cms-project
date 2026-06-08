@@ -159,4 +159,32 @@ CREATE TABLE team_members (
     role VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+# CarePulse - NGO Healthcare Content Management System (CMS)
+
+CarePulse is a responsive administrative portal and public interface built to manage, track, and display essential community healthcare programs dynamically. This system is designed to handle public project visibility, resource tracking, and admin content management efficiently.
+
+## 📌 Project Overview
+* **Institution:** Maharani Cluster University
+* **Course:** Bachelor of Computer Applications (BCA) Final Year Project Submission
+* **Current Year:** 2026
+
+## 🚀 Key Features
+* **Dynamic "Our Projects" Filtering:** Users can seamlessly switch between *All*, *Ongoing*, *Completed*, and *Upcoming* project states using an interactive, dynamic front-end card grid.
+* **Impact Metrics Dashboard:** Displays real-time organizational impact numbers (e.g., *10,000+ Children Checked*, *70+ People Helped*, *30+ Members Engaged*, *$30,000+ Funds Raised*).
+* **Robust Backend Pipeline:** Includes relational database mapping for multi-image project uploads and secure data handling.
+* **Mobile-First Responsive Design:** Built using modern Bootstrap frameworks to ensure perfect view layouts across mobile, tablet, and desktop viewports.
+
+## 🛠️ Tech Stack Used
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+), Bootstrap 5.3, FontAwesome Icons
+* **Backend:** Node.js, Express.js
+* **Database:** MySQL / PostgreSQL (Relational schema handling 1:N project-to-image mapping)
+
+## 📁 Repository Structure
+```text
+├── database.sql        # Database schema layout rules and relations
+├── server.js          # Node.js backend configuration and API logic
+├── index.html         # Live public homepage featuring the dynamic projects module
+├── about.html         # About Us overview document layout
+└── login.html         # Admin access portal structure
+
 
